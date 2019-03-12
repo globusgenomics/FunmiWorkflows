@@ -1,0 +1,949 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "PRODUCTION-Illumina_BWA-MEM+BQSR_Globus-transfer-and-alignment-only", 
+    "steps": {
+        "0": {
+            "annotation": "0", 
+            "content_id": "globus_get_data_text", 
+            "errors": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Get Data via Globus", 
+                    "name": "from_endpoint"
+                }, 
+                {
+                    "description": "runtime parameter for tool Get Data via Globus", 
+                    "name": "from_path"
+                }
+            ], 
+            "label": null, 
+            "name": "Get Data via Globus", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 269, 
+                "top": 596.328125
+            }, 
+            "post_job_actions": {
+                "ChangeDatatypeActionout_file1": {
+                    "action_arguments": {
+                        "newtype": "fastqsanger"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_id": "globus_get_data_text", 
+            "tool_state": "{\"username\": \"\\\"\\\"\", \"from_endpoint\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__page__\": null, \"__rerun_remap_job_id__\": null, \"from_path\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"goauth\": \"\\\"\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "b618eeee-e348-4835-adce-5d4372508e73", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "1", 
+            "content_id": "globus_get_data_text", 
+            "errors": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Get Data via Globus", 
+                    "name": "from_endpoint"
+                }, 
+                {
+                    "description": "runtime parameter for tool Get Data via Globus", 
+                    "name": "from_path"
+                }
+            ], 
+            "label": null, 
+            "name": "Get Data via Globus", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 274, 
+                "top": 718.328125
+            }, 
+            "post_job_actions": {
+                "ChangeDatatypeActionout_file1": {
+                    "action_arguments": {
+                        "newtype": "fastqsanger"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_id": "globus_get_data_text", 
+            "tool_state": "{\"username\": \"\\\"\\\"\", \"from_endpoint\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__page__\": null, \"__rerun_remap_job_id__\": null, \"from_path\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"goauth\": \"\\\"\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "7e68bb21-dff6-4dc7-bcbc-d7d555de5f8d", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 2, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": "ucsc.hg19.fastq", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 745, 
+                "top": 349.5
+            }, 
+            "tool_id": null, 
+            "tool_state": "{}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "76afcc79-7577-4749-9ff1-d7a724739848", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "2", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 3, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "2", 
+                    "name": "Mills INDEL"
+                }
+            ], 
+            "label": "Mills INDEL", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 1871.65625, 
+                "top": 491
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Mills INDEL\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "22101ee1-81ad-4298-b92e-143c79c8e688", 
+            "workflow_outputs": []
+        }, 
+        "4": {
+            "annotation": "3", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 4, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "3", 
+                    "name": "dbSNP HighConfidence"
+                }
+            ], 
+            "label": "dbSNP HighConfidence", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 2469.65625, 
+                "top": 549
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"dbSNP HighConfidence\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "6b2f4d1b-efc4-45af-97c9-e79a04ab67d3", 
+            "workflow_outputs": []
+        }, 
+        "5": {
+            "annotation": "6", 
+            "content_id": "sickle", 
+            "errors": null, 
+            "id": 5, 
+            "input_connections": {
+                "readtype|input_paired1": {
+                    "id": 0, 
+                    "output_name": "out_file1"
+                }, 
+                "readtype|input_paired2": {
+                    "id": 1, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Sickle", 
+                    "name": "readtype"
+                }, 
+                {
+                    "description": "runtime parameter for tool Sickle", 
+                    "name": "readtype"
+                }
+            ], 
+            "label": null, 
+            "name": "Sickle", 
+            "outputs": [
+                {
+                    "name": "output_single", 
+                    "type": "input"
+                }, 
+                {
+                    "name": "output_paired1", 
+                    "type": "input"
+                }, 
+                {
+                    "name": "output_paired2", 
+                    "type": "input"
+                }, 
+                {
+                    "name": "output_paired_single", 
+                    "type": "input"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 550.15625, 
+                "top": 634
+            }, 
+            "post_job_actions": {
+                "ChangeDatatypeActionoutput_paired1": {
+                    "action_arguments": {
+                        "newtype": "fastqsanger"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "output_paired1"
+                }, 
+                "ChangeDatatypeActionoutput_paired2": {
+                    "action_arguments": {
+                        "newtype": "fastqsanger"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "output_paired2"
+                }
+            }, 
+            "tool_id": "sickle", 
+            "tool_state": "{\"__page__\": null, \"length_threshold\": \"\\\"40\\\"\", \"no_five_prime\": \"\\\"false\\\"\", \"discard_n\": \"\\\"true\\\"\", \"__rerun_remap_job_id__\": null, \"readtype\": \"{\\\"single_or_paired\\\": \\\"pe\\\", \\\"input_paired1\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"input_paired2\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"qual_type\": \"\\\"sanger\\\"\", \"qual_threshold\": \"\\\"20\\\"\"}", 
+            "tool_version": "SICKLE: 070113", 
+            "type": "tool", 
+            "uuid": "f48a4447-08a6-43f6-81de-8d6148fc3d77", 
+            "workflow_outputs": []
+        }, 
+        "6": {
+            "annotation": "7", 
+            "content_id": "bwa_mem", 
+            "errors": null, 
+            "id": 6, 
+            "input_connections": {
+                "genomeSource|ownFile": {
+                    "id": 2, 
+                    "output_name": "output"
+                }, 
+                "paired|fastq": {
+                    "id": 5, 
+                    "output_name": "output_paired1"
+                }, 
+                "paired|rfastq": {
+                    "id": 5, 
+                    "output_name": "output_paired2"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Map with BWA-MEM", 
+                    "name": "genomeSource"
+                }, 
+                {
+                    "description": "runtime parameter for tool Map with BWA-MEM", 
+                    "name": "paired"
+                }, 
+                {
+                    "description": "runtime parameter for tool Map with BWA-MEM", 
+                    "name": "paired"
+                }
+            ], 
+            "label": null, 
+            "name": "Map with BWA-MEM", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "sam"
+                }
+            ], 
+            "position": {
+                "left": 860.65625, 
+                "top": 655.5
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "bwa_mem", 
+            "tool_state": "{\"genomeSource\": \"{\\\"refGenomeSource\\\": \\\"history\\\", \\\"ownFile\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"__page__\": null, \"__rerun_remap_job_id__\": null, \"bam_format\": \"\\\"bam\\\"\", \"mark\": \"\\\"true\\\"\", \"paired\": \"{\\\"rfastq\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"fastq\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"sPaired\\\": \\\"paired\\\", \\\"__current_case__\\\": 1}\", \"params\": \"{\\\"__current_case__\\\": 0, \\\"source_select\\\": \\\"pre_set\\\"}\", \"suppressHeader\": \"\\\"false\\\"\", \"readGroup\": \"{\\\"__current_case__\\\": 1, \\\"specReadGroup\\\": \\\"no\\\"}\"}", 
+            "tool_version": "BWA: 0.7.12; SAMTOOLS: 1.2", 
+            "type": "tool", 
+            "uuid": "e388a15d-fa3f-4238-bcf1-f04dfc4661e6", 
+            "workflow_outputs": []
+        }, 
+        "7": {
+            "annotation": "8", 
+            "content_id": "picard_SortSam", 
+            "errors": null, 
+            "id": 7, 
+            "input_connections": {
+                "inputFile": {
+                    "id": 6, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Sort Sam", 
+                    "name": "inputFile"
+                }
+            ], 
+            "label": null, 
+            "name": "Sort Sam", 
+            "outputs": [
+                {
+                    "name": "outFile", 
+                    "type": "bam"
+                }
+            ], 
+            "position": {
+                "left": 1132.65625, 
+                "top": 661
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "picard_SortSam", 
+            "tool_state": "{\"__page__\": null, \"outputFormat\": \"\\\"true\\\"\", \"sort_order\": \"\\\"coordinate\\\"\", \"__rerun_remap_job_id__\": null, \"inputFile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "PICARD: 1.134", 
+            "type": "tool", 
+            "uuid": "5deb5dd7-de14-415f-ae5d-16791a47e022", 
+            "workflow_outputs": []
+        }, 
+        "8": {
+            "annotation": "9", 
+            "content_id": "picard_ARRG", 
+            "errors": null, 
+            "id": 8, 
+            "input_connections": {
+                "inputFile": {
+                    "id": 7, 
+                    "output_name": "outFile"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Add or Replace Groups", 
+                    "name": "rgsm"
+                }, 
+                {
+                    "description": "runtime parameter for tool Add or Replace Groups", 
+                    "name": "rgid"
+                }, 
+                {
+                    "description": "runtime parameter for tool Add or Replace Groups", 
+                    "name": "rgpu"
+                }, 
+                {
+                    "description": "runtime parameter for tool Add or Replace Groups", 
+                    "name": "rglb"
+                }, 
+                {
+                    "description": "runtime parameter for tool Add or Replace Groups", 
+                    "name": "inputFile"
+                }
+            ], 
+            "label": null, 
+            "name": "Add or Replace Groups", 
+            "outputs": [
+                {
+                    "name": "outFile", 
+                    "type": "bam"
+                }
+            ], 
+            "position": {
+                "left": 1448.15625, 
+                "top": 631
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "picard_ARRG", 
+            "tool_state": "{\"rgpl\": \"\\\"illumina\\\"\", \"outputFormat\": \"\\\"true\\\"\", \"__page__\": null, \"rgsm\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"readGroupOpts\": \"{\\\"rgOpts\\\": \\\"preSet\\\", \\\"__current_case__\\\": 0}\", \"rgid\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"rgpu\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"rglb\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"inputFile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "PICARD: 1.134", 
+            "type": "tool", 
+            "uuid": "d40f202f-753e-45bb-9431-5a8430454de6", 
+            "workflow_outputs": []
+        }, 
+        "9": {
+            "annotation": "10", 
+            "content_id": "rgPicardMarkDups", 
+            "errors": null, 
+            "id": 9, 
+            "input_connections": {
+                "input_file": {
+                    "id": 8, 
+                    "output_name": "outFile"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Mark Duplicate reads", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": null, 
+            "name": "Mark Duplicate reads", 
+            "outputs": [
+                {
+                    "name": "out_file", 
+                    "type": "bam"
+                }, 
+                {
+                    "name": "html_file", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 1796.15625, 
+                "top": 625
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "rgPicardMarkDups", 
+            "tool_state": "{\"remDups\": \"\\\"true\\\"\", \"assumeSorted\": \"\\\"true\\\"\", \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"readRegex\": \"\\\"[a-zA-Z0-9]+:[0-9]:([0-9]+):([0-9]+):([0-9]+).*\\\"\", \"__page__\": null, \"__rerun_remap_job_id__\": null, \"out_prefix\": \"\\\"dedup\\\"\", \"optDupeDist\": \"\\\"100\\\"\"}", 
+            "tool_version": "PICARD: 1.134", 
+            "type": "tool", 
+            "uuid": "60709490-56e8-4423-8c09-c73eab31079e", 
+            "workflow_outputs": []
+        }, 
+        "10": {
+            "annotation": "", 
+            "content_id": "gatk3.8_realigner_target_creator", 
+            "errors": null, 
+            "id": 10, 
+            "input_connections": {
+                "reference_source|input_bam": {
+                    "id": 9, 
+                    "output_name": "out_file"
+                }, 
+                "reference_source|ref_file": {
+                    "id": 2, 
+                    "output_name": "output"
+                }, 
+                "rod_bind_0|rod_bind_type|input_rod": {
+                    "id": 3, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Realigner Target Creator", 
+                    "name": "reference_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool Realigner Target Creator", 
+                    "name": "reference_source"
+                }
+            ], 
+            "label": null, 
+            "name": "Realigner Target Creator", 
+            "outputs": [
+                {
+                    "name": "output_interval", 
+                    "type": "gatk_interval"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1992, 
+                "top": 248.5
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "gatk3.8_realigner_target_creator", 
+            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"gatk_param_type\": \"{\\\"gatk_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"analysis_param_type\": \"{\\\"analysis_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"reference_source\": \"{\\\"ref_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"reference_source_selector\\\": \\\"history\\\", \\\"input_bam\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"rod_bind\": \"[{\\\"__index__\\\": 0, \\\"rod_bind_type\\\": {\\\"rod_bind_type_selector\\\": \\\"indels\\\", \\\"__current_case__\\\": 2, \\\"input_rod\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}}]\"}", 
+            "tool_version": "GATK3: GenomeAnalysisTK-3.8-0; SAMTOOLS: 1.1", 
+            "type": "tool", 
+            "uuid": "2822c737-88dc-4c9f-ad29-99ea4f37f6cb", 
+            "workflow_outputs": []
+        }, 
+        "11": {
+            "annotation": "12", 
+            "content_id": "samtools_flagstat", 
+            "errors": null, 
+            "id": 11, 
+            "input_connections": {
+                "input1": {
+                    "id": 9, 
+                    "output_name": "out_file"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool flagstat", 
+                    "name": "input1"
+                }
+            ], 
+            "label": null, 
+            "name": "flagstat", 
+            "outputs": [
+                {
+                    "name": "output1", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 2190.15625, 
+                "top": 744
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "samtools_flagstat", 
+            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"input1\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "SAMTOOLS: 1.2", 
+            "type": "tool", 
+            "uuid": "ececc5d7-bb00-4494-b81e-1e1f5d6c30de", 
+            "workflow_outputs": []
+        }, 
+        "12": {
+            "annotation": "", 
+            "content_id": "picard_BuildBamIndex", 
+            "errors": null, 
+            "id": 12, 
+            "input_connections": {
+                "input_file": {
+                    "id": 9, 
+                    "output_name": "out_file"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Build BAM Index", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": null, 
+            "name": "Build BAM Index", 
+            "outputs": [
+                {
+                    "name": "outFile", 
+                    "type": "bai"
+                }
+            ], 
+            "position": {
+                "left": 2178.828125, 
+                "top": 839.328125
+            }, 
+            "post_job_actions": {
+                "ChangeDatatypeActionoutFile": {
+                    "action_arguments": {
+                        "newtype": "txt"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "outFile"
+                }
+            }, 
+            "tool_id": "picard_BuildBamIndex", 
+            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "PICARD: 1.134", 
+            "type": "tool", 
+            "uuid": "982128d5-7503-403c-9658-4094ed07bbed", 
+            "workflow_outputs": []
+        }, 
+        "13": {
+            "annotation": "PicardRM_BAM", 
+            "content_id": "globus_send_data", 
+            "errors": null, 
+            "id": 13, 
+            "input_connections": {
+                "from_dataset": {
+                    "id": 9, 
+                    "output_name": "out_file"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Send Data via Globus", 
+                    "name": "to_path"
+                }, 
+                {
+                    "description": "runtime parameter for tool Send Data via Globus", 
+                    "name": "from_dataset"
+                }
+            ], 
+            "label": "PicardRM_BAM", 
+            "name": "Send Data via Globus", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 2175, 
+                "top": 961.5
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "globus_send_data", 
+            "tool_state": "{\"__page__\": null, \"to_endpoint\": \"\\\"galaxy#funmi_0\\\"\", \"__rerun_remap_job_id__\": null, \"to_path\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"from_dataset\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"goauth\": \"\\\"**\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "d003451b-c657-4e31-ba52-b8df50b8dde6", 
+            "workflow_outputs": []
+        }, 
+        "14": {
+            "annotation": "", 
+            "content_id": "gatk3.8_indel_realigner", 
+            "errors": null, 
+            "id": 14, 
+            "input_connections": {
+                "reference_source|input_bam": {
+                    "id": 9, 
+                    "output_name": "out_file"
+                }, 
+                "reference_source|ref_file": {
+                    "id": 2, 
+                    "output_name": "output"
+                }, 
+                "rod_bind_0|rod_bind_type|input_rod": {
+                    "id": 3, 
+                    "output_name": "output"
+                }, 
+                "target_intervals": {
+                    "id": 10, 
+                    "output_name": "output_interval"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Indel Realigner", 
+                    "name": "target_intervals"
+                }, 
+                {
+                    "description": "runtime parameter for tool Indel Realigner", 
+                    "name": "reference_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool Indel Realigner", 
+                    "name": "reference_source"
+                }
+            ], 
+            "label": null, 
+            "name": "Indel Realigner", 
+            "outputs": [
+                {
+                    "name": "output_bam", 
+                    "type": "bam"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 2308, 
+                "top": 238.5
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "gatk3.8_indel_realigner", 
+            "tool_state": "{\"__page__\": null, \"knowns_only\": \"\\\"false\\\"\", \"gatk_param_type\": \"{\\\"gatk_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"lod_threshold\": \"\\\"5.0\\\"\", \"analysis_param_type\": \"{\\\"analysis_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"target_intervals\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"reference_source\": \"{\\\"ref_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"reference_source_selector\\\": \\\"history\\\", \\\"input_bam\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"__rerun_remap_job_id__\": null, \"rod_bind\": \"[{\\\"__index__\\\": 0, \\\"rod_bind_type\\\": {\\\"rod_bind_type_selector\\\": \\\"indels\\\", \\\"__current_case__\\\": 2, \\\"input_rod\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}}]\"}", 
+            "tool_version": "GATK3.8: GenomeAnalysisTK-3.8-0; SAMTOOLS: 1.1", 
+            "type": "tool", 
+            "uuid": "46aa1e7b-4e27-41ad-8409-3c0725f1b153", 
+            "workflow_outputs": []
+        }, 
+        "15": {
+            "annotation": "PicardRM_BAI", 
+            "content_id": "globus_send_data", 
+            "errors": null, 
+            "id": 15, 
+            "input_connections": {
+                "from_dataset": {
+                    "id": 12, 
+                    "output_name": "outFile"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Send Data via Globus", 
+                    "name": "to_path"
+                }, 
+                {
+                    "description": "runtime parameter for tool Send Data via Globus", 
+                    "name": "from_dataset"
+                }
+            ], 
+            "label": "PicardRM_BAI", 
+            "name": "Send Data via Globus", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 2439.328125, 
+                "top": 845.328125
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "globus_send_data", 
+            "tool_state": "{\"__page__\": null, \"to_endpoint\": \"\\\"galaxy#funmi_0\\\"\", \"__rerun_remap_job_id__\": null, \"to_path\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"from_dataset\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"goauth\": \"\\\"**\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "3705c691-8fbc-4c25-a31c-f018e6946edf", 
+            "workflow_outputs": []
+        }, 
+        "16": {
+            "annotation": "17", 
+            "content_id": "gatk3.8_base_recalibrator", 
+            "errors": null, 
+            "id": 16, 
+            "input_connections": {
+                "reference_source|input_bam": {
+                    "id": 14, 
+                    "output_name": "output_bam"
+                }, 
+                "reference_source|ref_file": {
+                    "id": 2, 
+                    "output_name": "output"
+                }, 
+                "rod_bind_0|rod_bind_type|data_source_cond|input_rod": {
+                    "id": 4, 
+                    "output_name": "output"
+                }, 
+                "rod_bind_1|rod_bind_type|data_source_cond|input_rod": {
+                    "id": 3, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Base Recalibrator", 
+                    "name": "input_recal"
+                }, 
+                {
+                    "description": "runtime parameter for tool Base Recalibrator", 
+                    "name": "reference_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool Base Recalibrator", 
+                    "name": "reference_source"
+                }
+            ], 
+            "label": null, 
+            "name": "Base Recalibrator", 
+            "outputs": [
+                {
+                    "name": "output_recal", 
+                    "type": "gatk_report"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "output_pdf", 
+                    "type": "pdf"
+                }
+            ], 
+            "position": {
+                "left": 2711, 
+                "top": 276.5
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "gatk3.8_base_recalibrator", 
+            "tool_state": "{\"__page__\": null, \"plot_pdf\": \"\\\"false\\\"\", \"input_recal\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"standard_covs\": \"\\\"false\\\"\", \"__rerun_remap_job_id__\": null, \"gatk_param_type\": \"{\\\"gatk_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"covariates\": \"[\\\"ReadGroupCovariate\\\", \\\"QualityScoreCovariate\\\", \\\"CycleCovariate\\\", \\\"ContextCovariate\\\"]\", \"analysis_param_type\": \"{\\\"analysis_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"reference_source\": \"{\\\"ref_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"reference_source_selector\\\": \\\"history\\\", \\\"input_bam\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"rod_bind\": \"[{\\\"__index__\\\": 0, \\\"rod_bind_type\\\": {\\\"rod_bind_type_selector\\\": \\\"dbsnp\\\", \\\"__current_case__\\\": 0, \\\"data_source_cond\\\": {\\\"data_source\\\": \\\"history\\\", \\\"__current_case__\\\": 0, \\\"input_rod\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}}}, {\\\"__index__\\\": 1, \\\"rod_bind_type\\\": {\\\"rod_bind_type_selector\\\": \\\"indels\\\", \\\"__current_case__\\\": 2, \\\"data_source_cond\\\": {\\\"data_source\\\": \\\"history\\\", \\\"__current_case__\\\": 0, \\\"input_rod\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}}}]\"}", 
+            "tool_version": "GATK3.8: GenomeAnalysisTK-3.8-0; SAMTOOLS: 1.1", 
+            "type": "tool", 
+            "uuid": "80aba85d-8ace-4057-b5f4-59f331cf1d0e", 
+            "workflow_outputs": []
+        }, 
+        "17": {
+            "annotation": "18", 
+            "content_id": "gatk3_print_reads", 
+            "errors": null, 
+            "id": 17, 
+            "input_connections": {
+                "input_recal": {
+                    "id": 16, 
+                    "output_name": "output_recal"
+                }, 
+                "reference_source|input_bam": {
+                    "id": 9, 
+                    "output_name": "out_file"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Print Reads", 
+                    "name": "reference_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool Print Reads", 
+                    "name": "input_recal"
+                }
+            ], 
+            "label": null, 
+            "name": "Print Reads", 
+            "outputs": [
+                {
+                    "name": "output_bam", 
+                    "type": "bam"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 2972.65625, 
+                "top": 641
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "gatk3_print_reads", 
+            "tool_state": "{\"__page__\": null, \"gatk_param_type\": \"{\\\"gatk_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"input_recal\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"analysis_param_type\": \"{\\\"analysis_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"reference_source\": \"{\\\"ref_file\\\": \\\"hg19\\\", \\\"reference_source_selector\\\": \\\"cached\\\", \\\"input_bam\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\"}", 
+            "tool_version": "GATK3: GenomeAnalysisTK-3.4-46; SAMTOOLS: 0.1.18", 
+            "type": "tool", 
+            "uuid": "d093ecc2-2949-44af-952d-eb8e458d83e8", 
+            "workflow_outputs": []
+        }, 
+        "18": {
+            "annotation": "", 
+            "content_id": "picard_BuildBamIndex", 
+            "errors": null, 
+            "id": 18, 
+            "input_connections": {
+                "input_file": {
+                    "id": 17, 
+                    "output_name": "output_bam"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Build BAM Index", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": null, 
+            "name": "Build BAM Index", 
+            "outputs": [
+                {
+                    "name": "outFile", 
+                    "type": "bai"
+                }
+            ], 
+            "position": {
+                "left": 3294.828125, 
+                "top": 564.328125
+            }, 
+            "post_job_actions": {
+                "ChangeDatatypeActionoutFile": {
+                    "action_arguments": {
+                        "newtype": "txt"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "outFile"
+                }
+            }, 
+            "tool_id": "picard_BuildBamIndex", 
+            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "PICARD: 1.134", 
+            "type": "tool", 
+            "uuid": "2af47661-b4f8-4f1b-91b1-c2f487879451", 
+            "workflow_outputs": []
+        }, 
+        "19": {
+            "annotation": "GATK_BAM", 
+            "content_id": "globus_send_data", 
+            "errors": null, 
+            "id": 19, 
+            "input_connections": {
+                "from_dataset": {
+                    "id": 17, 
+                    "output_name": "output_bam"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Send Data via Globus", 
+                    "name": "to_path"
+                }, 
+                {
+                    "description": "runtime parameter for tool Send Data via Globus", 
+                    "name": "from_dataset"
+                }
+            ], 
+            "label": "GATK_BAM", 
+            "name": "Send Data via Globus", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 3299, 
+                "top": 805.5
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "globus_send_data", 
+            "tool_state": "{\"__page__\": null, \"to_endpoint\": \"\\\"galaxy#funmi_0\\\"\", \"__rerun_remap_job_id__\": null, \"to_path\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"from_dataset\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"goauth\": \"\\\"**\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "10d23f3b-f104-4f81-a0ca-07217bdfad4c", 
+            "workflow_outputs": []
+        }, 
+        "20": {
+            "annotation": "GATK_BAI", 
+            "content_id": "globus_send_data", 
+            "errors": null, 
+            "id": 20, 
+            "input_connections": {
+                "from_dataset": {
+                    "id": 18, 
+                    "output_name": "outFile"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Send Data via Globus", 
+                    "name": "to_path"
+                }, 
+                {
+                    "description": "runtime parameter for tool Send Data via Globus", 
+                    "name": "from_dataset"
+                }
+            ], 
+            "label": "GATK_BAI", 
+            "name": "Send Data via Globus", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 3542.328125, 
+                "top": 589.328125
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "globus_send_data", 
+            "tool_state": "{\"__page__\": null, \"to_endpoint\": \"\\\"galaxy#funmi_0\\\"\", \"__rerun_remap_job_id__\": null, \"to_path\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"from_dataset\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"goauth\": \"\\\"**\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "5da6546d-51a4-4a48-ae9d-44299e804c12", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "b58919ab-be35-49c9-94fe-90ebd8af3496"
+}

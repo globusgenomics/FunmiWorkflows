@@ -1,0 +1,540 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "PRODUCTION_GATKv3.8_HaplotypeCaller_Swift_BEDdefault_VQSR", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "BED"
+                }
+            ], 
+            "label": "BED", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 286.79998779296875, 
+                "top": 218.32501220703125
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"BED\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "e3c2240b-d802-46d2-accc-c0208c45256e", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "FastaRef"
+                }
+            ], 
+            "label": "FastaRef", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 274.04998779296875, 
+                "top": 876.9124984741211
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"FastaRef\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "120acb4c-4940-4388-8871-c7f91c06a6fd", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 2, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "dbSNP"
+                }
+            ], 
+            "label": "dbSNP", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 1050.4374771118164, 
+                "top": 1221.9375
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"dbSNP\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "3fe52ee9-bb50-4f67-b43b-dfc6cf10be6d", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 3, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "HapMap3.3"
+                }
+            ], 
+            "label": "HapMap3.3", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 1051.4999771118164, 
+                "top": 1337.9750061035156
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"HapMap3.3\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "41b5564d-3cab-40c1-84bf-789fc23c7a66", 
+            "workflow_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 4, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "OMNI2.5"
+                }
+            ], 
+            "label": "OMNI2.5", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 1053.4999771118164, 
+                "top": 1456
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"OMNI2.5\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "91c86d59-f827-47c8-a4fe-d7fbbcd27eca", 
+            "workflow_outputs": []
+        }, 
+        "5": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 5, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "1KG Phase1 SNPs High Confidence"
+                }
+            ], 
+            "label": "1KG Phase1 SNPs High Confidence", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 1054.5249710083008, 
+                "top": 1573
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"1KG Phase1 SNPs High Confidence\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "60955fd6-b1fa-4b82-bc52-39a8307af283", 
+            "workflow_outputs": []
+        }, 
+        "6": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 6, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Mills 1KG Gold Standard Indels"
+                }
+            ], 
+            "label": "Mills 1KG Gold Standard Indels", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 1056.5249710083008, 
+                "top": 1683.0375366210938
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Mills 1KG Gold Standard Indels\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "a8965162-83f4-4c7f-98a3-6cadaa1aaa1f", 
+            "workflow_outputs": []
+        }, 
+        "7": {
+            "annotation": "", 
+            "content_id": "gatk3.8_haplotype_caller_swift", 
+            "errors": null, 
+            "id": 7, 
+            "input_connections": {
+                "gatk_param_type|input_interval_repeat_0|input_intervals": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "reference_source|ref_file": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Haplotype Caller using Swift", 
+                    "name": "analysis_param_type"
+                }, 
+                {
+                    "description": "runtime parameter for tool Haplotype Caller using Swift", 
+                    "name": "analysis_param_type"
+                }, 
+                {
+                    "description": "runtime parameter for tool Haplotype Caller using Swift", 
+                    "name": "analysis_param_type"
+                }, 
+                {
+                    "description": "runtime parameter for tool Haplotype Caller using Swift", 
+                    "name": "reference_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool Haplotype Caller using Swift", 
+                    "name": "reference_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool Haplotype Caller using Swift", 
+                    "name": "input_recal"
+                }
+            ], 
+            "label": null, 
+            "name": "Haplotype Caller using Swift", 
+            "outputs": [
+                {
+                    "name": "output_vcf", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "graph_out", 
+                    "type": "vcf"
+                }, 
+                {
+                    "name": "active_region_out", 
+                    "type": "vcf"
+                }
+            ], 
+            "position": {
+                "left": 548.4874877929688, 
+                "top": 223
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "gatk3.8_haplotype_caller_swift", 
+            "tool_state": "{\"__page__\": null, \"gatk_param_type\": \"{\\\"gatk_param_type_selector\\\": \\\"advanced\\\", \\\"pedigree_string_repeat\\\": [], \\\"pedigree_validation_type\\\": \\\"STRICT\\\", \\\"pedigree\\\": [], \\\"input_interval_repeat\\\": [{\\\"input_intervals\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__index__\\\": 0}], \\\"fix_misencoded_quality_scores\\\": \\\"false\\\", \\\"baq\\\": \\\"OFF\\\", \\\"input_exclude_interval_repeat\\\": [], \\\"default_base_qualities\\\": \\\"0\\\", \\\"downsampling_type\\\": {\\\"downsampling_type_selector\\\": \\\"NONE\\\", \\\"__current_case__\\\": 0}, \\\"interval_merging\\\": \\\"ALL\\\", \\\"interval_set_rule\\\": \\\"UNION\\\", \\\"non_deterministic_random_seed\\\": \\\"false\\\", \\\"__current_case__\\\": 1, \\\"read_filter\\\": [], \\\"validation_strictness\\\": \\\"LENIENT\\\", \\\"baq_gap_open_penalty\\\": \\\"40.0\\\", \\\"read_group_black_list_repeat\\\": [], \\\"use_original_qualities\\\": \\\"false\\\"}\", \"__rerun_remap_job_id__\": null, \"input_recal\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"analysis_param_type\": \"{\\\"max_alternate_alleles\\\": \\\"6\\\", \\\"gcpHMM\\\": \\\"10\\\", \\\"pair_hmm_implementation\\\": \\\"LOGLESS_CACHING\\\", \\\"dbsnp\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"group\\\": null, \\\"p_nonref_model\\\": \\\"EXACT_INDEPENDENT\\\", \\\"activeRegionOut\\\": \\\"false\\\", \\\"useAllelesTrigger\\\": \\\"false\\\", \\\"contamination_fraction_to_filter\\\": \\\"0.001\\\", \\\"minPruning\\\": \\\"2\\\", \\\"genotypeFullActiveRegion\\\": \\\"false\\\", \\\"output_mode\\\": \\\"NONE\\\", \\\"comp\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"activeRegionIn\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"analysis_param_type_selector\\\": \\\"advanced\\\", \\\"heterozygosity\\\": \\\"0.001\\\", \\\"graphOutput\\\": \\\"false\\\", \\\"genotyping_mode_type\\\": {\\\"genotyping_mode\\\": \\\"DISCOVERY\\\", \\\"__current_case__\\\": 1}, \\\"fullHaplotype\\\": \\\"false\\\", \\\"annotation\\\": \\\"\\\", \\\"additional_annotations\\\": [], \\\"exclude_annotations\\\": \\\"\\\", \\\"standard_min_confidence_threshold_for_emitting\\\": \\\"30.0\\\", \\\"standard_min_confidence_threshold_for_calling\\\": \\\"30.0\\\", \\\"__current_case__\\\": 1, \\\"debug\\\": \\\"false\\\", \\\"emitRefConfidence\\\": \\\"GVCF\\\"}\", \"reference_source\": \"{\\\"ref_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"reference_source_selector\\\": \\\"history\\\", \\\"input_directory_path\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\"}", 
+            "tool_version": "GATK3.8: GenomeAnalysisTK-3.8-0;  SAMTOOLS: 1.1; JAVA: jre1.7.0_51", 
+            "type": "tool", 
+            "uuid": "be537a68-2c1e-4980-b6b1-bfb5924d88a2", 
+            "workflow_outputs": []
+        }, 
+        "8": {
+            "annotation": "", 
+            "content_id": "gatk3.8_gvcf_combine", 
+            "errors": null, 
+            "id": 8, 
+            "input_connections": {
+                "reference_source|input_format_selector|ref_file": {
+                    "id": 1, 
+                    "output_name": "output"
+                }, 
+                "reference_source|input_format_selector|swift_input_file": {
+                    "id": 7, 
+                    "output_name": "output_vcf"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Combine GVCFs", 
+            "outputs": [
+                {
+                    "name": "output_variants", 
+                    "type": "vcf"
+                }
+            ], 
+            "position": {
+                "left": 801.4874572753906, 
+                "top": 585
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "gatk3.8_gvcf_combine", 
+            "tool_state": "{\"reference_source\": \"{\\\"reference_source_selector\\\": \\\"history\\\", \\\"input_format_selector\\\": {\\\"ref_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"swift_input_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1, \\\"input_format\\\": \\\"swift\\\"}, \\\"__current_case__\\\": 1}\", \"__rerun_remap_job_id__\": null, \"gatk_param_type\": \"{\\\"gatk_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"convertToBasePairResolution\": \"\\\"false\\\"\", \"__page__\": null}", 
+            "tool_version": "GATK3.8: GenomeAnalysisTK-3.8-0", 
+            "type": "tool", 
+            "uuid": "cd21f5b6-9cf4-49a4-ad45-a266d0759b60", 
+            "workflow_outputs": []
+        }, 
+        "9": {
+            "annotation": "", 
+            "content_id": "gatk3.8_genotypegvcfs", 
+            "errors": null, 
+            "id": 9, 
+            "input_connections": {
+                "reference_source|input_variants_0|input_format_selector|input_variant": {
+                    "id": 8, 
+                    "output_name": "output_variants"
+                }, 
+                "reference_source|ref_file": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool GenotypeGVCFs", 
+                    "name": "reference_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool GenotypeGVCFs", 
+                    "name": "dbsnp"
+                }
+            ], 
+            "label": null, 
+            "name": "GenotypeGVCFs", 
+            "outputs": [
+                {
+                    "name": "output_variants", 
+                    "type": "vcf"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1080.4999732971191, 
+                "top": 749
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "gatk3.8_genotypegvcfs", 
+            "tool_state": "{\"__page__\": null, \"additional_annotations\": \"[]\", \"inv\": \"\\\"false\\\"\", \"gatk_param_type\": \"{\\\"gatk_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"reference_source\": \"{\\\"ref_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"reference_source_selector\\\": \\\"history\\\", \\\"__current_case__\\\": 1, \\\"input_variants\\\": [{\\\"__index__\\\": 0, \\\"input_format_selector\\\": {\\\"input_variant\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0, \\\"input_format\\\": \\\"galaxy\\\"}}]}\", \"dbsnp\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"annotation\": \"\\\"\\\"\"}", 
+            "tool_version": "GATK3.8: GenomeAnalysisTK-3.8-0", 
+            "type": "tool", 
+            "uuid": "1bff2d4f-4922-4181-a370-9add846c668f", 
+            "workflow_outputs": []
+        }, 
+        "10": {
+            "annotation": "", 
+            "content_id": "gatk3.8_variant_annotator", 
+            "errors": null, 
+            "id": 10, 
+            "input_connections": {
+                "dbsnp_rod_bind_type|dbsnp_input_rod": {
+                    "id": 2, 
+                    "output_name": "output"
+                }, 
+                "reference_source|input_variant": {
+                    "id": 9, 
+                    "output_name": "output_variants"
+                }, 
+                "reference_source|ref_file": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Variant Annotator", 
+                    "name": "dbsnp_rod_bind_type"
+                }, 
+                {
+                    "description": "runtime parameter for tool Variant Annotator", 
+                    "name": "reference_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool Variant Annotator", 
+                    "name": "reference_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool Variant Annotator", 
+                    "name": "reference_source"
+                }
+            ], 
+            "label": null, 
+            "name": "Variant Annotator", 
+            "outputs": [
+                {
+                    "name": "output_vcf", 
+                    "type": "vcf"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1380.999984741211, 
+                "top": 965
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "gatk3.8_variant_annotator", 
+            "tool_state": "{\"__page__\": null, \"comp_rod_bind\": \"[]\", \"gatk_param_type\": \"{\\\"gatk_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"exclude_annotations\": \"\\\"\\\"\", \"snpEff_rod_bind_type\": \"{\\\"snpEff_rod_bind_type_selector\\\": \\\"exclude_snpEff\\\", \\\"__current_case__\\\": 0}\", \"mendel_violation_genotype_quality_threshold\": \"\\\"0.0\\\"\", \"dbsnp_rod_bind_type\": \"{\\\"dbsnp_rod_bind_type_selector\\\": \\\"set_dbsnp\\\", \\\"dbsnp_input_rod\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1, \\\"dbsnp_rod_name\\\": \\\"dbsnp\\\"}\", \"additional_annotations\": \"[]\", \"resource_rod_bind\": \"[]\", \"__rerun_remap_job_id__\": null, \"annotations_type\": \"{\\\"__current_case__\\\": 1, \\\"annotations_type_selector\\\": \\\"choose\\\", \\\"annotations\\\": \\\"\\\"}\", \"reference_source\": \"{\\\"ref_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"input_variant_bti\\\": \\\"false\\\", \\\"input_variant\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1, \\\"reference_source_selector\\\": \\\"history\\\", \\\"input_bam\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}\", \"expressions\": \"[]\", \"annotation_group\": \"null\", \"family_string\": \"\\\"\\\"\"}", 
+            "tool_version": "GATK3.8: GenomeAnalysisTK-3.8-0; SAMTOOLS: 1.1", 
+            "type": "tool", 
+            "uuid": "fb56f1f6-868f-41d9-af37-9696073089fe", 
+            "workflow_outputs": []
+        }, 
+        "11": {
+            "annotation": "", 
+            "content_id": "gatk3.8_variant_recalibrator", 
+            "errors": null, 
+            "id": 11, 
+            "input_connections": {
+                "reference_source|ref_file": {
+                    "id": 1, 
+                    "output_name": "output"
+                }, 
+                "reference_source|variants_0|input_variants": {
+                    "id": 10, 
+                    "output_name": "output_vcf"
+                }, 
+                "rod_bind_0|rod_bind_type|input_rod": {
+                    "id": 2, 
+                    "output_name": "output"
+                }, 
+                "rod_bind_1|rod_bind_type|input_rod": {
+                    "id": 3, 
+                    "output_name": "output"
+                }, 
+                "rod_bind_2|rod_bind_type|input_rod": {
+                    "id": 4, 
+                    "output_name": "output"
+                }, 
+                "rod_bind_3|rod_bind_type|input_rod": {
+                    "id": 5, 
+                    "output_name": "output"
+                }, 
+                "rod_bind_4|rod_bind_type|input_rod": {
+                    "id": 6, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Variant Recalibrator", 
+                    "name": "reference_source"
+                }
+            ], 
+            "label": null, 
+            "name": "Variant Recalibrator", 
+            "outputs": [
+                {
+                    "name": "output_recal", 
+                    "type": "gatk_recal"
+                }, 
+                {
+                    "name": "output_tranches", 
+                    "type": "gatk_tranche"
+                }, 
+                {
+                    "name": "output_rscript", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "output_tranches_pdf", 
+                    "type": "pdf"
+                }
+            ], 
+            "position": {
+                "left": 1598.4999694824219, 
+                "top": 1249
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "gatk3.8_variant_recalibrator", 
+            "tool_state": "{\"__page__\": null, \"additional_annotations\": \"[{\\\"__index__\\\": 0, \\\"additional_annotation_name\\\": \\\"QD\\\"}, {\\\"__index__\\\": 1, \\\"additional_annotation_name\\\": \\\"FS\\\"}, {\\\"__index__\\\": 2, \\\"additional_annotation_name\\\": \\\"SOR\\\"}, {\\\"__index__\\\": 3, \\\"additional_annotation_name\\\": \\\"ReadPosRankSum\\\"}, {\\\"__index__\\\": 4, \\\"additional_annotation_name\\\": \\\"MQRankSum\\\"}, {\\\"__index__\\\": 5, \\\"additional_annotation_name\\\": \\\"InbreedingCoeff\\\"}, {\\\"__index__\\\": 6, \\\"additional_annotation_name\\\": \\\"MQ\\\"}]\", \"__rerun_remap_job_id__\": null, \"gatk_param_type\": \"{\\\"gatk_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"analysis_param_type\": \"{\\\"target_titv\\\": \\\"2.15\\\", \\\"std_threshold\\\": \\\"8.0\\\", \\\"dirichlet\\\": \\\"0.001\\\", \\\"shrinkage\\\": \\\"1.0\\\", \\\"num_k_means\\\": \\\"30\\\", \\\"analysis_param_type_selector\\\": \\\"advanced\\\", \\\"__current_case__\\\": 1, \\\"max_gaussians\\\": \\\"4\\\", \\\"prior_counts\\\": \\\"20.0\\\", \\\"ignore_filters\\\": [], \\\"min_num_bad_variants\\\": \\\"1000\\\", \\\"ts_tranche\\\": \\\"100.0, 99.9, 99.0, 90.0\\\", \\\"max_iterations\\\": \\\"100\\\"}\", \"mode\": \"\\\"BOTH\\\"\", \"reference_source\": \"{\\\"ref_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"reference_source_selector\\\": \\\"history\\\", \\\"variants\\\": [{\\\"__index__\\\": 0, \\\"input_variants\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}], \\\"__current_case__\\\": 1}\", \"annotations\": \"\\\"\\\"\", \"rod_bind\": \"[{\\\"__index__\\\": 0, \\\"rod_bind_type\\\": {\\\"rod_bind_type_selector\\\": \\\"dbsnp\\\", \\\"rod_training_type\\\": {\\\"training\\\": \\\"false\\\", \\\"__current_case__\\\": 1, \\\"rod_training_type_selector\\\": \\\"is_training_truth_known\\\", \\\"prior\\\": \\\"2.0\\\", \\\"bad\\\": \\\"false\\\", \\\"truth\\\": \\\"false\\\", \\\"known\\\": \\\"true\\\"}, \\\"__current_case__\\\": 3, \\\"input_rod\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}}, {\\\"__index__\\\": 1, \\\"rod_bind_type\\\": {\\\"rod_bind_type_selector\\\": \\\"hapmap\\\", \\\"rod_training_type\\\": {\\\"training\\\": \\\"true\\\", \\\"__current_case__\\\": 1, \\\"rod_training_type_selector\\\": \\\"is_training_truth_known\\\", \\\"prior\\\": \\\"15.0\\\", \\\"bad\\\": \\\"false\\\", \\\"truth\\\": \\\"true\\\", \\\"known\\\": \\\"false\\\"}, \\\"__current_case__\\\": 5, \\\"input_rod\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}}, {\\\"__index__\\\": 2, \\\"rod_bind_type\\\": {\\\"rod_bind_type_selector\\\": \\\"omni\\\", \\\"rod_training_type\\\": {\\\"training\\\": \\\"true\\\", \\\"__current_case__\\\": 1, \\\"rod_training_type_selector\\\": \\\"is_training_truth_known\\\", \\\"prior\\\": \\\"12.0\\\", \\\"bad\\\": \\\"false\\\", \\\"truth\\\": \\\"true\\\", \\\"known\\\": \\\"false\\\"}, \\\"__current_case__\\\": 6, \\\"input_rod\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}}, {\\\"__index__\\\": 3, \\\"rod_bind_type\\\": {\\\"rod_bind_type_selector\\\": \\\"snps\\\", \\\"rod_training_type\\\": {\\\"training\\\": \\\"true\\\", \\\"__current_case__\\\": 1, \\\"rod_training_type_selector\\\": \\\"is_training_truth_known\\\", \\\"prior\\\": \\\"10.0\\\", \\\"bad\\\": \\\"false\\\", \\\"truth\\\": \\\"false\\\", \\\"known\\\": \\\"false\\\"}, \\\"__current_case__\\\": 4, \\\"input_rod\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}}, {\\\"__index__\\\": 4, \\\"rod_bind_type\\\": {\\\"rod_bind_type_selector\\\": \\\"indels\\\", \\\"rod_training_type\\\": {\\\"training\\\": \\\"true\\\", \\\"__current_case__\\\": 1, \\\"rod_training_type_selector\\\": \\\"is_training_truth_known\\\", \\\"prior\\\": \\\"12.0\\\", \\\"bad\\\": \\\"false\\\", \\\"truth\\\": \\\"true\\\", \\\"known\\\": \\\"false\\\"}, \\\"__current_case__\\\": 7, \\\"input_rod\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}}]\"}", 
+            "tool_version": "GATK3.8: GenomeAnalysisTK-3.8-0; SAMTOOLS: 1.1", 
+            "type": "tool", 
+            "uuid": "82d40167-9b27-456a-9624-49c92e844bf2", 
+            "workflow_outputs": []
+        }, 
+        "12": {
+            "annotation": "", 
+            "content_id": "gatk3.8_variant_apply_recalibration", 
+            "errors": null, 
+            "id": 12, 
+            "input_connections": {
+                "reference_source|input_recal": {
+                    "id": 11, 
+                    "output_name": "output_recal"
+                }, 
+                "reference_source|input_tranches": {
+                    "id": 11, 
+                    "output_name": "output_tranches"
+                }, 
+                "reference_source|ref_file": {
+                    "id": 1, 
+                    "output_name": "output"
+                }, 
+                "reference_source|variants_0|input_variants": {
+                    "id": 10, 
+                    "output_name": "output_vcf"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Apply Variant Recalibration", 
+                    "name": "reference_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool Apply Variant Recalibration", 
+                    "name": "reference_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool Apply Variant Recalibration", 
+                    "name": "reference_source"
+                }
+            ], 
+            "label": null, 
+            "name": "Apply Variant Recalibration", 
+            "outputs": [
+                {
+                    "name": "output_variants", 
+                    "type": "vcf"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 2080, 
+                "top": 1276
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "gatk3.8_variant_apply_recalibration", 
+            "tool_state": "{\"__page__\": null, \"ts_filter_level\": \"\\\"99.0\\\"\", \"__rerun_remap_job_id__\": null, \"gatk_param_type\": \"{\\\"gatk_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"mode\": \"\\\"BOTH\\\"\", \"reference_source\": \"{\\\"ref_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"input_recal\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1, \\\"reference_source_selector\\\": \\\"history\\\", \\\"input_tranches\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"variants\\\": [{\\\"__index__\\\": 0, \\\"input_variants\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}]}\", \"ignore_filters\": \"[]\"}", 
+            "tool_version": "GATK3.8: GenomeAnalysisTK-3.8-0", 
+            "type": "tool", 
+            "uuid": "de1fc7b7-1ef3-4ebc-848d-b3781ebc310c", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "b971d695-3193-4dc6-9a2c-bdbad77bf1f7"
+}

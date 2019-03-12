@@ -1,0 +1,233 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "PRODUCTION_SAMtools_mpileup_Swift_by_BEDWindowSize", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "ReferenceFasta"
+                }
+            ], 
+            "label": "ReferenceFasta", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 202.96875, 
+                "top": 186.328125
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"ReferenceFasta\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "1a99bc55-d0f0-45fb-b586-e0ec092ab323", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "e3960452-034d-4bfd-b1ab-f04840fc667e"
+                }
+            ]
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": "directory_dataset_hack", 
+            "errors": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Directory Path Dataset", 
+                    "name": "path_or_pathsegment"
+                }
+            ], 
+            "label": null, 
+            "name": "Directory Path Dataset", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 199.96875, 
+                "top": 272.328125
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_id": "directory_dataset_hack", 
+            "tool_state": "{\"path_or_pathsegment\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"__page__\": null}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "6ffe58f9-bdf6-4ece-9eb2-5e36be9ca5b5", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 2, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "RegionsBedFile"
+                }
+            ], 
+            "label": "RegionsBedFile", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 206.96875, 
+                "top": 375.328125
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"RegionsBedFile\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "8900015b-4a29-42c7-865e-71a73fa94030", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "ac80da83-a7f3-4bde-a910-b0b610085b55"
+                }
+            ]
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "samtools_mpileup_swift", 
+            "errors": null, 
+            "id": 3, 
+            "input_connections": {
+                "input_dir_source|input_directory_path_file": {
+                    "id": 1, 
+                    "output_name": "out_file1"
+                }, 
+                "parallel_mode|position_list": {
+                    "id": 2, 
+                    "output_name": "output"
+                }, 
+                "reference_source|ref_file": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool MPileup with Swift", 
+                    "name": "input_dir_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool MPileup with Swift", 
+                    "name": "parallel_mode"
+                }, 
+                {
+                    "description": "runtime parameter for tool MPileup with Swift", 
+                    "name": "reference_source"
+                }
+            ], 
+            "label": null, 
+            "name": "MPileup with Swift", 
+            "outputs": [
+                {
+                    "name": "output_mpileup", 
+                    "type": "pileup"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "pdf"
+                }
+            ], 
+            "position": {
+                "left": 505.96875, 
+                "top": 220.328125
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_log": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_log"
+                }
+            }, 
+            "tool_id": "samtools_mpileup_swift", 
+            "tool_state": "{\"__page__\": null, \"genotype_likelihood_computation_type\": \"{\\\"__current_case__\\\": 0, \\\"genotype_likelihood_computation_type_selector\\\": \\\"perform_genotype_likelihood_computation\\\", \\\"gap_open_sequencing_error_probability\\\": \\\"40\\\", \\\"platform_list_repeat\\\": [], \\\"perform_indel_calling\\\": {\\\"skip_indel_calling_above_sample_depth\\\": \\\"1000\\\", \\\"minimum_gapped_reads_indel_candidates\\\": \\\"1\\\", \\\"__current_case__\\\": 0, \\\"perform_indel_calling_selector\\\": \\\"perform_indel_calling\\\"}, \\\"coefficient_for_modeling_homopolymer_errors\\\": \\\"100\\\", \\\"minimum_fraction_gapped_reads_candidates\\\": \\\"2e-06\\\", \\\"gap_extension_sequencing_error_probability\\\": \\\"20\\\"}\", \"__rerun_remap_job_id__\": null, \"input_dir_source\": \"{\\\"input_dir_source_type\\\": \\\"file\\\", \\\"input_directory_path_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"advanced_options\": \"{\\\"max_reads_per_bam\\\": \\\"800\\\", \\\"advanced_options_selector\\\": \\\"advanced\\\", \\\"extended_BAQ_computation\\\": \\\"false\\\", \\\"minimum_base_quality\\\": \\\"13\\\", \\\"disable_probabilistic_realignment\\\": \\\"false\\\", \\\"skip_anomalous_read_pairs\\\": \\\"false\\\", \\\"minimum_mapping_quality\\\": \\\"0\\\", \\\"output_per_sample_read_depth\\\": \\\"false\\\", \\\"__current_case__\\\": 0, \\\"output_per_sample_strand_bias_p_value\\\": \\\"false\\\", \\\"coefficient_for_downgrading\\\": \\\"0\\\"}\", \"reference_source\": \"{\\\"ref_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"reference_source_selector\\\": \\\"history\\\", \\\"__current_case__\\\": 1}\", \"parallel_mode\": \"{\\\"position_list\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"parallel_split\\\": \\\"32\\\", \\\"__current_case__\\\": 0, \\\"parallel_mode_type\\\": \\\"bed\\\"}\"}", 
+            "tool_version": "SAMTOOLS: 1.2", 
+            "type": "tool", 
+            "uuid": "b8f301cd-de24-492a-abbc-1cae9af0677c", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output_mpileup", 
+                    "uuid": "e5289326-8d85-4cf9-b794-41633f903351"
+                }
+            ]
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": "bcftools_call", 
+            "errors": null, 
+            "id": 4, 
+            "input_connections": {
+                "input": {
+                    "id": 3, 
+                    "output_name": "output_mpileup"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool bcftools call", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "bcftools call", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "vcf"
+                }, 
+                {
+                    "name": "log", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 833.96875, 
+                "top": 264.328125
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionlog": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "log"
+                }
+            }, 
+            "tool_id": "bcftools_call", 
+            "tool_state": "{\"A\": \"\\\"false\\\"\", \"__page__\": null, \"v\": \"\\\"true\\\"\", \"g\": \"{\\\"gvcf\\\": \\\"false\\\", \\\"__current_case__\\\": 1}\", \"p\": \"{\\\"variant_filter\\\": \\\"false\\\", \\\"__current_case__\\\": 1}\", \"I\": \"\\\"false\\\"\", \"__rerun_remap_job_id__\": null, \"caller_type\": \"\\\"m\\\"\", \"M\": \"\\\"false\\\"\", \"O\": \"\\\"v\\\"\", \"P\": \"{\\\"set_prior\\\": \\\"false\\\", \\\"__current_case__\\\": 1}\", \"V\": \"{\\\"__current_case__\\\": 1, \\\"skip_variants\\\": \\\"false\\\"}\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"samples_cond\": \"{\\\"samples_input\\\": \\\"all\\\", \\\"__current_case__\\\": 0}\", \"target_region_cond\": \"{\\\"__current_case__\\\": 0, \\\"target_region\\\": \\\"none\\\"}\"}", 
+            "tool_version": "SAMTOOLS: 1.2", 
+            "type": "tool", 
+            "uuid": "70942b1d-a401-47e3-b075-1a634715e343", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "b0f136a9-bda8-4ca3-aa61-a36bfbdaf9e5"
+                }
+            ]
+        }
+    }, 
+    "uuid": "9eee7efc-71cd-4d57-aa89-c40c7887a27c"
+}

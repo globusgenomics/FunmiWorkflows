@@ -1,0 +1,1688 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "PRODUCTION_ConVarCal_SV_BEDfilter_PostProcessing", 
+    "steps": {
+        "0": {
+            "annotation": "UCSC hg19", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "UCSC hg19", 
+                    "name": "Reference Genome"
+                }
+            ], 
+            "label": "Reference Genome", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 207.25, 
+                "top": 600.875
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Reference Genome\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "197e2092-b452-43c7-b8ee-320706ddaa28", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "5e8d7c08-7733-4f1b-94d8-67b713c4a797"
+                }
+            ]
+        }, 
+        "1": {
+            "annotation": "1", 
+            "content_id": "breakdancer_tool_swift", 
+            "errors": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool breakdancer", 
+                    "name": "input_dir_source"
+                }
+            ], 
+            "label": null, 
+            "name": "breakdancer", 
+            "outputs": [
+                {
+                    "name": "output_log", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "output_swift_log", 
+                    "type": "pdf"
+                }
+            ], 
+            "position": {
+                "left": 597.8125, 
+                "top": 263.4375
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "breakdancer_tool_swift", 
+            "tool_state": "{\"cutoff\": \"\\\"3\\\"\", \"maxHaploidCov\": \"\\\"1000\\\"\", \"__page__\": null, \"minMapQuality\": \"\\\"35\\\"\", \"minLength\": \"\\\"7\\\"\", \"__rerun_remap_job_id__\": null, \"minReadDepth\": \"\\\"2\\\"\", \"onlyTrans\": \"\\\"false\\\"\", \"maxSvSize\": \"\\\"1000000000\\\"\", \"input_dir_source\": \"{\\\"input_dir_source_type\\\": \\\"text\\\", \\\"input_directory_path\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\", \"prefix\": \"\\\"\\\"\", \"bedFormat\": \"\\\"false\\\"\", \"bufferSize\": \"\\\"100\\\"\", \"chromosome\": \"\\\"\\\"\"}", 
+            "tool_version": "1.4.5", 
+            "type": "tool", 
+            "uuid": "d6276db4-d361-4bce-8bb2-c857e225b47c", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output_swift_log", 
+                    "uuid": "b8cf17bb-2488-43de-bb54-5b3b8a4a8960"
+                }, 
+                {
+                    "label": null, 
+                    "output_name": "output_log", 
+                    "uuid": "bb5a1169-3c82-48de-80e9-0e4a9bb60c22"
+                }
+            ]
+        }, 
+        "2": {
+            "annotation": "BED without header for: CNVkit, Contra, Pindel", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 2, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "BED without header for: CNVkit, Contra, Pindel", 
+                    "name": "Targeted Regions BED File No Header"
+                }
+            ], 
+            "label": "Targeted Regions BED File No Header", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 207.25, 
+                "top": 827.375
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Targeted Regions BED File No Header\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "264874b7-1783-480d-ad99-c6e843fc235d", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "a870f964-4c2a-4246-b79a-0ae7a3c3452f"
+                }
+            ]
+        }, 
+        "3": {
+            "annotation": "BED file contains untargeted regions to be excluded\nFor Delly 1st and 2nd call", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 3, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "BED file contains untargeted regions to be excluded\nFor Delly 1st and 2nd call", 
+                    "name": "Untargeted Regions BED File No Header"
+                }
+            ], 
+            "label": "Untargeted Regions BED File No Header", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 205, 
+                "top": 1131.125
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Untargeted Regions BED File No Header\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "e902d9a1-ce03-4551-9b27-8766e5f892e8", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "19ea4ee8-0e7a-4687-babb-e073aaf956a0"
+                }
+            ]
+        }, 
+        "4": {
+            "annotation": "VCFtools needs BED file with header\nBED with header for Lumpy, Manta post-processing filter", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 4, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "VCFtools needs BED file with header\nBED with header for Lumpy, Manta post-processing filter", 
+                    "name": "Targeted Regions BED File With Header"
+                }
+            ], 
+            "label": "Targeted Regions BED File With Header", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 199.9625244140625, 
+                "top": 1571.375
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Targeted Regions BED File With Header\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "0c4c2d19-9c1c-4b9b-bc11-77ac7900bbb9", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "172948ac-9c2a-4f64-bf16-175bb48dae00"
+                }
+            ]
+        }, 
+        "5": {
+            "annotation": "29", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 5, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "29", 
+                    "name": "ucsc_hg19_refSeq_genes_exons"
+                }
+            ], 
+            "label": "ucsc_hg19_refSeq_genes_exons", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 2150.5, 
+                "top": 1329.875
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"ucsc_hg19_refSeq_genes_exons\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "e88c2345-ab4b-431e-81c6-ac2115edeada", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "3c4639c4-c440-421b-b2e3-2050c1605c51"
+                }
+            ]
+        }, 
+        "6": {
+            "annotation": "5", 
+            "content_id": "breakseq_tool_swift", 
+            "errors": null, 
+            "id": 6, 
+            "input_connections": {
+                "in_type|input1": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool breakseq", 
+                    "name": "input_dir_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool breakseq", 
+                    "name": "in_type"
+                }
+            ], 
+            "label": null, 
+            "name": "breakseq", 
+            "outputs": [
+                {
+                    "name": "output_log", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "output_swift_log", 
+                    "type": "pdf"
+                }
+            ], 
+            "position": {
+                "left": 596.3125, 
+                "top": 402.2624969482422
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "breakseq_tool_swift", 
+            "tool_state": "{\"checkChr\": \"\\\"True\\\"\", \"chromosomes\": \"\\\"\\\"\", \"__page__\": null, \"__rerun_remap_job_id__\": null, \"input_dir_source\": \"{\\\"input_dir_source_type\\\": \\\"text\\\", \\\"input_directory_path\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\", \"in_type\": \"{\\\"input_type\\\": \\\"history\\\", \\\"input1\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\"}", 
+            "tool_version": "2.2", 
+            "type": "tool", 
+            "uuid": "83e77445-204a-47b5-a31d-ea4f8da87b47", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output_swift_log", 
+                    "uuid": "2b7828e7-19d1-461d-b037-92ff8d7c419a"
+                }, 
+                {
+                    "label": null, 
+                    "output_name": "output_log", 
+                    "uuid": "7df037e7-69b8-430a-a487-51c4c9fa39cb"
+                }
+            ]
+        }, 
+        "7": {
+            "annotation": "6", 
+            "content_id": "cnvkit_access", 
+            "errors": null, 
+            "id": 7, 
+            "input_connections": {
+                "genomeSource|ownFile": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool cnvkit access", 
+                    "name": "genomeSource"
+                }
+            ], 
+            "label": null, 
+            "name": "cnvkit access", 
+            "outputs": [
+                {
+                    "name": "out_file", 
+                    "type": "bed"
+                }
+            ], 
+            "position": {
+                "left": 597.25, 
+                "top": 686.3125
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file"
+                }
+            }, 
+            "tool_id": "cnvkit_access", 
+            "tool_state": "{\"genomeSource\": \"{\\\"refGenomeSource\\\": \\\"history\\\", \\\"ownFile\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"__page__\": null, \"line\": \"\\\"5000\\\"\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "CNVKIT: v0.7.5", 
+            "type": "tool", 
+            "uuid": "d3bc88d2-5084-4e54-bae6-c5c86a1b02b6", 
+            "workflow_outputs": []
+        }, 
+        "8": {
+            "annotation": "7", 
+            "content_id": "manta_tool_swift", 
+            "errors": null, 
+            "id": 8, 
+            "input_connections": {
+                "genomeSource|ownFile": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Manta", 
+                    "name": "genomeSource"
+                }, 
+                {
+                    "description": "runtime parameter for tool Manta", 
+                    "name": "input_dir_source"
+                }
+            ], 
+            "label": null, 
+            "name": "Manta", 
+            "outputs": [
+                {
+                    "name": "output_log", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "output_swift_log", 
+                    "type": "pdf"
+                }
+            ], 
+            "position": {
+                "left": 602.1875, 
+                "top": 1490.3125
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "manta_tool_swift", 
+            "tool_state": "{\"genomeSource\": \"{\\\"refGenomeSource\\\": \\\"history\\\", \\\"ownFile\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"input_dir_source\": \"{\\\"input_dir_source_type\\\": \\\"text\\\", \\\"input_directory_path\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"option\": \"{\\\"minPassSomaticScore\\\": \\\"30\\\", \\\"option\\\": \\\"modify_parameters\\\", \\\"minCandidateVariantSize\\\": \\\"8\\\", \\\"minPassDiploidVariantScore\\\": \\\"20\\\", \\\"analysis_mode\\\": {\\\"option_mode\\\": \\\"exome\\\", \\\"__current_case__\\\": 1}, \\\"minPassDiploidGTScore\\\": \\\"15\\\", \\\"minEdgeObservations\\\": \\\"2\\\", \\\"minDiploidVariantScore\\\": \\\"10\\\", \\\"minCandidateSpanningCount\\\": \\\"2\\\", \\\"__current_case__\\\": 0, \\\"minScoredVariantSize\\\": \\\"51\\\", \\\"minSomaticScore\\\": \\\"10\\\"}\", \"__page__\": null}", 
+            "tool_version": "SAMTOOLS: 1.2; Manta: 0.29.2", 
+            "type": "tool", 
+            "uuid": "cdcbff04-2a48-478f-96f6-8df8c514b9af", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output_swift_log", 
+                    "uuid": "17a8bd69-2ab9-4a42-a6bc-44ecf8fee7e9"
+                }, 
+                {
+                    "label": null, 
+                    "output_name": "output_log", 
+                    "uuid": "b6cded8a-ef77-4b24-b594-493989f536f1"
+                }
+            ]
+        }, 
+        "9": {
+            "annotation": "9", 
+            "content_id": "cnvkit_target_prep", 
+            "errors": null, 
+            "id": 9, 
+            "input_connections": {
+                "targetbed": {
+                    "id": 2, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool cnvkit target bed file prep", 
+                    "name": "targetbed"
+                }
+            ], 
+            "label": null, 
+            "name": "cnvkit target bed file prep", 
+            "outputs": [
+                {
+                    "name": "out_file", 
+                    "type": "bed"
+                }
+            ], 
+            "position": {
+                "left": 595.6875, 
+                "top": 575.25
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file"
+                }
+            }, 
+            "tool_id": "cnvkit_target_prep", 
+            "tool_state": "{\"targetbed\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"annotation\": \"{\\\"indices\\\": \\\"hg19\\\", \\\"__current_case__\\\": 0, \\\"file\\\": \\\"indexed\\\"}\", \"__page__\": null}", 
+            "tool_version": "CNVKIT: v0.7.5", 
+            "type": "tool", 
+            "uuid": "f7ba9aa2-7def-4c91-b481-8b3f4c1c6e62", 
+            "workflow_outputs": []
+        }, 
+        "10": {
+            "annotation": "8\n\nIf you use the default numBin (2000), make sure the regions in your input BED file is more than 2000, otherwise Contra enters an infinite loop.", 
+            "content_id": "contra_tool_swift", 
+            "errors": null, 
+            "id": 10, 
+            "input_connections": {
+                "genomeSource|ownFile": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "target_file": {
+                    "id": 2, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Contra Copy number analysis", 
+                    "name": "genomeSource"
+                }, 
+                {
+                    "description": "runtime parameter for tool Contra Copy number analysis", 
+                    "name": "input_dir_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool Contra Copy number analysis", 
+                    "name": "target_file"
+                }
+            ], 
+            "label": null, 
+            "name": "Contra Copy number analysis", 
+            "outputs": [
+                {
+                    "name": "output_log", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "output_swift_log", 
+                    "type": "pdf"
+                }
+            ], 
+            "position": {
+                "left": 598.25, 
+                "top": 851.3125
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "contra_tool_swift", 
+            "tool_state": "{\"genomeSource\": \"{\\\"refGenomeSource\\\": \\\"history\\\", \\\"ownFile\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"__page__\": null, \"option\": \"{\\\"minAvgForCall\\\": \\\"20\\\", \\\"plot\\\": \\\"false\\\", \\\"minTestRdForCall\\\": \\\"0\\\", \\\"nomultimapped\\\": \\\"false\\\", \\\"option\\\": \\\"modify_parameters\\\", \\\"sam\\\": \\\"false\\\", \\\"pval\\\": \\\"0.05\\\", \\\"lrCallEnd\\\": \\\"0.3\\\", \\\"sampleName\\\": \\\"Contra_Output\\\", \\\"minReadDepth\\\": \\\"10\\\", \\\"bed\\\": \\\"false\\\", \\\"largeDeletion_cond\\\": {\\\"largeSegment\\\": \\\"25\\\", \\\"smallSegment\\\": \\\"1\\\", \\\"__current_case__\\\": 0, \\\"largeDeletion\\\": \\\"true\\\"}, \\\"minNbases\\\": \\\"10\\\", \\\"regionSize_cond\\\": {\\\"regionSize\\\": \\\"false\\\", \\\"__current_case__\\\": 0}, \\\"passSize\\\": \\\"0.5\\\", \\\"numBin\\\": \\\"10\\\", \\\"__current_case__\\\": 0, \\\"lrCallStart\\\": \\\"-0.3\\\", \\\"minExon\\\": \\\"10\\\", \\\"minControlRdForCall\\\": \\\"5\\\"}\", \"target_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"input_dir_source\": \"{\\\"input_dir_source_type\\\": \\\"text\\\", \\\"input_directory_path\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\", \"controlSource\": \"{\\\"percent_bam_to_use\\\": \\\"0.5\\\", \\\"refControlSource\\\": \\\"build\\\", \\\"trim\\\": \\\"0.2\\\", \\\"group_batch_cond\\\": {\\\"group_keyword\\\": {\\\"separator\\\": \\\"_\\\", \\\"field_order\\\": \\\"1\\\", \\\"group\\\": \\\"yes\\\", \\\"__current_case__\\\": 1}, \\\"group_batch_select\\\": \\\"yes\\\", \\\"group_field\\\": \\\"ID\\\", \\\"__current_case__\\\": 1}, \\\"__current_case__\\\": 0}\"}", 
+            "tool_version": "BEDTOOLS: 2.17.0; SAMTOOLS: 0.1.18; CONTRA: CONTRA.v2.0.4", 
+            "type": "tool", 
+            "uuid": "8d4ae6ef-4676-4b52-ae20-b83a806e55a5", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output_swift_log", 
+                    "uuid": "4f3456aa-95b4-422c-b59c-877aa864bfc5"
+                }, 
+                {
+                    "label": null, 
+                    "output_name": "output_log", 
+                    "uuid": "a0c9190b-d77a-466c-96de-61ee356a00df"
+                }
+            ]
+        }, 
+        "11": {
+            "annotation": "10", 
+            "content_id": "pindel_tool_swift", 
+            "errors": null, 
+            "id": 11, 
+            "input_connections": {
+                "genomeSource|ownFile": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "target_file": {
+                    "id": 2, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool PINDEL", 
+                    "name": "genomeSource"
+                }, 
+                {
+                    "description": "runtime parameter for tool PINDEL", 
+                    "name": "input_dir_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool PINDEL", 
+                    "name": "target_file"
+                }
+            ], 
+            "label": null, 
+            "name": "PINDEL", 
+            "outputs": [
+                {
+                    "name": "output_log", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "output_swift_log", 
+                    "type": "pdf"
+                }
+            ], 
+            "position": {
+                "left": 600.75, 
+                "top": 1680.4375
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "pindel_tool_swift", 
+            "tool_state": "{\"genomeSource\": \"{\\\"refGenomeSource\\\": \\\"history\\\", \\\"ownFile\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"__page__\": null, \"option\": \"{\\\"option\\\": \\\"default_parameters\\\", \\\"__current_case__\\\": 1}\", \"target_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"input_dir_source\": \"{\\\"input_dir_source_type\\\": \\\"text\\\", \\\"input_directory_path\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\"}", 
+            "tool_version": "SAMTOOLS: 1.2; PINDEL: 0.2.5b7", 
+            "type": "tool", 
+            "uuid": "09d063e3-6a56-4439-9fbf-bd72a54dc1ab", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output_swift_log", 
+                    "uuid": "78aeaeea-09de-47a9-a630-31c56f9351ba"
+                }, 
+                {
+                    "label": null, 
+                    "output_name": "output_log", 
+                    "uuid": "77689dde-fdb1-4bbb-af04-fc4ef5cd696c"
+                }
+            ]
+        }, 
+        "12": {
+            "annotation": "12", 
+            "content_id": "delly2_call_swift", 
+            "errors": null, 
+            "id": 12, 
+            "input_connections": {
+                "exclude": {
+                    "id": 3, 
+                    "output_name": "output"
+                }, 
+                "genomeSource|ownFile": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool delly2_call_swift", 
+                    "name": "genomeSource"
+                }, 
+                {
+                    "description": "runtime parameter for tool delly2_call_swift", 
+                    "name": "vcffile"
+                }, 
+                {
+                    "description": "runtime parameter for tool delly2_call_swift", 
+                    "name": "input_dir_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool delly2_call_swift", 
+                    "name": "exclude"
+                }
+            ], 
+            "label": null, 
+            "name": "delly2_call_swift", 
+            "outputs": [
+                {
+                    "name": "output_log", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "output_swift_log", 
+                    "type": "pdf"
+                }
+            ], 
+            "position": {
+                "left": 599.3125, 
+                "top": 1038.5625
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_log": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_log"
+                }, 
+                "HideDatasetActionoutput_swift_log": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_swift_log"
+                }
+            }, 
+            "tool_id": "delly2_call_swift", 
+            "tool_state": "{\"genomeSource\": \"{\\\"refGenomeSource\\\": \\\"history\\\", \\\"ownFile\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"__page__\": null, \"noindels\": \"\\\"false\\\"\", \"checkDel\": \"\\\"true\\\"\", \"vcffile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"checkDup\": \"\\\"true\\\"\", \"mad_cutoff\": \"\\\"9\\\"\", \"input_dir_source\": \"{\\\"input_dir_source_type\\\": \\\"text\\\", \\\"input_directory_path\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\", \"map_qual\": \"\\\"1\\\"\", \"geno_qual\": \"\\\"5\\\"\", \"exclude\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"checkInv\": \"\\\"true\\\"\", \"checkTra\": \"\\\"true\\\"\", \"checkIns\": \"\\\"true\\\"\"}", 
+            "tool_version": "DELLY: v0.7.3", 
+            "type": "tool", 
+            "uuid": "6f437f73-ceca-4537-85bc-a868f4a772bb", 
+            "workflow_outputs": []
+        }, 
+        "13": {
+            "annotation": "11", 
+            "content_id": "lumpyexpress_tool_swift", 
+            "errors": null, 
+            "id": 13, 
+            "input_connections": {
+                "include_target_file": {
+                    "id": 4, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool LumpyExpress", 
+                    "name": "exclude_target_file"
+                }, 
+                {
+                    "description": "runtime parameter for tool LumpyExpress", 
+                    "name": "input_dir_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool LumpyExpress", 
+                    "name": "include_target_file"
+                }
+            ], 
+            "label": null, 
+            "name": "LumpyExpress", 
+            "outputs": [
+                {
+                    "name": "output_log", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "output_swift_log", 
+                    "type": "pdf"
+                }
+            ], 
+            "position": {
+                "left": 607.25, 
+                "top": 1290.3125
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "lumpyexpress_tool_swift", 
+            "tool_state": "{\"exclude_target_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__page__\": null, \"trim_threshold\": \"\\\"0.0\\\"\", \"input_dir_source\": \"{\\\"input_dir_source_type\\\": \\\"text\\\", \\\"input_directory_path\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"min_sample_weight\": \"\\\"4\\\"\", \"include_target_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "SAMBLASTER: 0.1.22; SAMTOOLS: 1.2; LUMPY: v0.2.11", 
+            "type": "tool", 
+            "uuid": "940bd33c-8d95-46bd-b9f1-8ec1d6667487", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output_swift_log", 
+                    "uuid": "4315a816-d53d-4385-9448-3d015da3603b"
+                }, 
+                {
+                    "label": null, 
+                    "output_name": "output_log", 
+                    "uuid": "5fd4048e-6525-4004-aca7-f1ac46994958"
+                }
+            ]
+        }, 
+        "14": {
+            "annotation": "25", 
+            "content_id": "swift_filter_sv_vcf", 
+            "errors": null, 
+            "id": 14, 
+            "input_connections": {
+                "input_source|input_config": {
+                    "id": 6, 
+                    "output_name": "output_log"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Filter SV VCF with SWIFT", 
+                    "name": "input_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool Filter SV VCF with SWIFT", 
+                    "name": "bedfile"
+                }
+            ], 
+            "label": null, 
+            "name": "Filter SV VCF with SWIFT", 
+            "outputs": [
+                {
+                    "name": "output_config", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 900.7749938964844, 
+                "top": 400.1374969482422
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_config": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_config"
+                }
+            }, 
+            "tool_id": "swift_filter_sv_vcf", 
+            "tool_state": "{\"__page__\": null, \"info_filters\": \"[{\\\"__index__\\\": 0, \\\"info_filter\\\": \\\"FILTER = PASS\\\"}]\", \"genotype_filters\": \"[]\", \"__rerun_remap_job_id__\": null, \"bedfile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_source\": \"{\\\"source_type\\\": \\\"config\\\", \\\"input_config\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\"}", 
+            "tool_version": "SAMTOOLS: 1.2; VCFTOOLS: vcftools_0.1.11; VCFLIB: 10.27.2016", 
+            "type": "tool", 
+            "uuid": "d5c1ee11-a446-4ebb-937a-1a0449af7cfb", 
+            "workflow_outputs": []
+        }, 
+        "15": {
+            "annotation": "31", 
+            "content_id": "swift_filter_sv_vcf", 
+            "errors": null, 
+            "id": 15, 
+            "input_connections": {
+                "bedfile": {
+                    "id": 4, 
+                    "output_name": "output"
+                }, 
+                "input_source|input_config": {
+                    "id": 8, 
+                    "output_name": "output_log"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Filter SV VCF with SWIFT", 
+                    "name": "input_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool Filter SV VCF with SWIFT", 
+                    "name": "bedfile"
+                }
+            ], 
+            "label": null, 
+            "name": "Filter SV VCF with SWIFT", 
+            "outputs": [
+                {
+                    "name": "output_config", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 887.7749938964844, 
+                "top": 1491.1875
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_config": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_config"
+                }
+            }, 
+            "tool_id": "swift_filter_sv_vcf", 
+            "tool_state": "{\"__page__\": null, \"info_filters\": \"[]\", \"genotype_filters\": \"[]\", \"__rerun_remap_job_id__\": null, \"bedfile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_source\": \"{\\\"source_type\\\": \\\"config\\\", \\\"input_config\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\"}", 
+            "tool_version": "SAMTOOLS: 1.2; VCFTOOLS: vcftools_0.1.11; VCFLIB: 10.27.2016", 
+            "type": "tool", 
+            "uuid": "256fb9f9-a01e-4283-a1b4-727d460f310f", 
+            "workflow_outputs": []
+        }, 
+        "16": {
+            "annotation": "14", 
+            "content_id": "cnvkit_swift", 
+            "errors": null, 
+            "id": 16, 
+            "input_connections": {
+                "accessfile": {
+                    "id": 7, 
+                    "output_name": "out_file"
+                }, 
+                "genomeSource|ownFile": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "targetbed": {
+                    "id": 9, 
+                    "output_name": "out_file"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool cnvkit_run (Swift)", 
+                    "name": "genomeSource"
+                }, 
+                {
+                    "description": "runtime parameter for tool cnvkit_run (Swift)", 
+                    "name": "targetbed"
+                }, 
+                {
+                    "description": "runtime parameter for tool cnvkit_run (Swift)", 
+                    "name": "input_dir_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool cnvkit_run (Swift)", 
+                    "name": "accessfile"
+                }
+            ], 
+            "label": null, 
+            "name": "cnvkit_run (Swift)", 
+            "outputs": [
+                {
+                    "name": "output_log", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "output_swift_log", 
+                    "type": "pdf"
+                }
+            ], 
+            "position": {
+                "left": 903.375, 
+                "top": 573.3125
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "cnvkit_swift", 
+            "tool_state": "{\"genomeSource\": \"{\\\"refGenomeSource\\\": \\\"history\\\", \\\"ownFile\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"targetbed\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"accessfile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__page__\": null, \"__rerun_remap_job_id__\": null, \"input_dir_source\": \"{\\\"input_dir_source_type\\\": \\\"text\\\", \\\"input_directory_path\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\", \"controlSource\": \"{\\\"percent_bam_to_use\\\": \\\"0.5\\\", \\\"refControlSource\\\": \\\"yes\\\", \\\"group_batch_cond\\\": {\\\"group_keyword\\\": {\\\"separator\\\": \\\"_\\\", \\\"field_order\\\": \\\"1\\\", \\\"group\\\": \\\"yes\\\", \\\"__current_case__\\\": 1}, \\\"group_batch_select\\\": \\\"yes\\\", \\\"group_field\\\": \\\"ID\\\", \\\"__current_case__\\\": 1}, \\\"__current_case__\\\": 1}\"}", 
+            "tool_version": "CNVKIT: v0.7.5", 
+            "type": "tool", 
+            "uuid": "b2d8d166-fa2f-4efe-b0eb-6e1df27deb77", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output_swift_log", 
+                    "uuid": "910a13fb-daff-49b5-8366-7b39616569a3"
+                }, 
+                {
+                    "label": null, 
+                    "output_name": "output_log", 
+                    "uuid": "ef7ba37b-dcac-4fc6-add1-9b3ee2f5c778"
+                }
+            ]
+        }, 
+        "17": {
+            "annotation": "22", 
+            "content_id": "swift_sv_sort_vcf", 
+            "errors": null, 
+            "id": 17, 
+            "input_connections": {
+                "input_source|input_config": {
+                    "id": 10, 
+                    "output_name": "output_log"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Sort SV VCF with SWIFT", 
+                    "name": "input_source"
+                }
+            ], 
+            "label": null, 
+            "name": "Sort SV VCF with SWIFT", 
+            "outputs": [
+                {
+                    "name": "output_config", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 904, 
+                "top": 848.4375
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "swift_sv_sort_vcf", 
+            "tool_state": "{\"input_source\": \"{\\\"source_type\\\": \\\"config\\\", \\\"input_config\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\", \"__page__\": null, \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "SAMTOOLS: 1.2; VCFTOOLS: vcftools_0.1.11; VCFLIB: 07.21.2015", 
+            "type": "tool", 
+            "uuid": "b9df04be-2aa5-4aef-b1c8-3f7686ea5953", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output_config", 
+                    "uuid": "f52df423-430d-4f07-985f-af9cedd0e91c"
+                }
+            ]
+        }, 
+        "18": {
+            "annotation": "25", 
+            "content_id": "contra_large_del", 
+            "errors": null, 
+            "id": 18, 
+            "input_connections": {
+                "input_config": {
+                    "id": 10, 
+                    "output_name": "output_log"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Generate a bed file for combined contra large deletions", 
+                    "name": "input_config"
+                }
+            ], 
+            "label": null, 
+            "name": "Generate a bed file for combined contra large deletions", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "bed"
+                }
+            ], 
+            "position": {
+                "left": 2150.5, 
+                "top": 783.875
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_id": "contra_large_del", 
+            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"input_config\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "0.0.1", 
+            "type": "tool", 
+            "uuid": "62841abf-8a6f-429d-9174-704fbc0dd9f8", 
+            "workflow_outputs": []
+        }, 
+        "19": {
+            "annotation": "28", 
+            "content_id": "swift_filter_sv_vcf", 
+            "errors": null, 
+            "id": 19, 
+            "input_connections": {
+                "input_source|input_config": {
+                    "id": 11, 
+                    "output_name": "output_log"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Filter SV VCF with SWIFT", 
+                    "name": "input_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool Filter SV VCF with SWIFT", 
+                    "name": "bedfile"
+                }
+            ], 
+            "label": null, 
+            "name": "Filter SV VCF with SWIFT", 
+            "outputs": [
+                {
+                    "name": "output_config", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 886.7749938964844, 
+                "top": 1681.1875
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_config": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_config"
+                }
+            }, 
+            "tool_id": "swift_filter_sv_vcf", 
+            "tool_state": "{\"__page__\": null, \"info_filters\": \"[]\", \"genotype_filters\": \"[{\\\"__index__\\\": 0, \\\"genotype_filter\\\": \\\"!( GT = 0/0 )\\\"}]\", \"__rerun_remap_job_id__\": null, \"bedfile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_source\": \"{\\\"source_type\\\": \\\"config\\\", \\\"input_config\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\"}", 
+            "tool_version": "SAMTOOLS: 1.2; VCFTOOLS: vcftools_0.1.11; VCFLIB: 10.27.2016", 
+            "type": "tool", 
+            "uuid": "142708ab-3825-432d-ae99-d16c90419852", 
+            "workflow_outputs": []
+        }, 
+        "20": {
+            "annotation": "16", 
+            "content_id": "delly2_merge_swift", 
+            "errors": null, 
+            "id": 20, 
+            "input_connections": {
+                "input_directory_path_file": {
+                    "id": 12, 
+                    "output_name": "output_log"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool delly2 merge", 
+                    "name": "input_directory_path_file"
+                }
+            ], 
+            "label": null, 
+            "name": "delly2 merge", 
+            "outputs": [
+                {
+                    "name": "output_log", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "output_swift_log", 
+                    "type": "pdf"
+                }
+            ], 
+            "position": {
+                "left": 905.4375, 
+                "top": 1039.5
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_log": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_log"
+                }, 
+                "HideDatasetActionoutput_swift_log": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_swift_log"
+                }
+            }, 
+            "tool_id": "delly2_merge_swift", 
+            "tool_state": "{\"__page__\": null, \"checkDel\": \"\\\"true\\\"\", \"__rerun_remap_job_id__\": null, \"checkDup\": \"\\\"true\\\"\", \"min_size\": \"\\\"0\\\"\", \"checkInv\": \"\\\"true\\\"\", \"input_directory_path_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"checkTra\": \"\\\"true\\\"\", \"checkIns\": \"\\\"true\\\"\", \"max_size\": \"\\\"1000000\\\"\"}", 
+            "tool_version": "DELLY: v0.7.3", 
+            "type": "tool", 
+            "uuid": "0010e40c-fd3b-4cc7-b928-03932bcbd72b", 
+            "workflow_outputs": []
+        }, 
+        "21": {
+            "annotation": "17", 
+            "content_id": "delly2_call_swift", 
+            "errors": null, 
+            "id": 21, 
+            "input_connections": {
+                "exclude": {
+                    "id": 3, 
+                    "output_name": "output"
+                }, 
+                "genomeSource|ownFile": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "vcffile": {
+                    "id": 20, 
+                    "output_name": "output_log"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool delly2_call_swift", 
+                    "name": "genomeSource"
+                }, 
+                {
+                    "description": "runtime parameter for tool delly2_call_swift", 
+                    "name": "vcffile"
+                }, 
+                {
+                    "description": "runtime parameter for tool delly2_call_swift", 
+                    "name": "input_dir_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool delly2_call_swift", 
+                    "name": "exclude"
+                }
+            ], 
+            "label": null, 
+            "name": "delly2_call_swift", 
+            "outputs": [
+                {
+                    "name": "output_log", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "output_swift_log", 
+                    "type": "pdf"
+                }
+            ], 
+            "position": {
+                "left": 1239.400001525879, 
+                "top": 1038.5
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "delly2_call_swift", 
+            "tool_state": "{\"genomeSource\": \"{\\\"refGenomeSource\\\": \\\"history\\\", \\\"ownFile\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"__page__\": null, \"noindels\": \"\\\"false\\\"\", \"checkDel\": \"\\\"true\\\"\", \"vcffile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"checkDup\": \"\\\"true\\\"\", \"mad_cutoff\": \"\\\"9\\\"\", \"input_dir_source\": \"{\\\"input_dir_source_type\\\": \\\"text\\\", \\\"input_directory_path\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\", \"map_qual\": \"\\\"1\\\"\", \"geno_qual\": \"\\\"5\\\"\", \"exclude\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"checkInv\": \"\\\"true\\\"\", \"checkTra\": \"\\\"true\\\"\", \"checkIns\": \"\\\"true\\\"\"}", 
+            "tool_version": "DELLY: v0.7.3", 
+            "type": "tool", 
+            "uuid": "7049adc5-f947-4f45-863d-2f544cbc3d6b", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output_swift_log", 
+                    "uuid": "68610ae8-ac24-41a3-b278-9b2f95e99c25"
+                }, 
+                {
+                    "label": null, 
+                    "output_name": "output_log", 
+                    "uuid": "0b0a108a-9100-457f-99f2-60b8542dca0a"
+                }
+            ]
+        }, 
+        "22": {
+            "annotation": "29", 
+            "content_id": "swift_filter_sv_vcf", 
+            "errors": null, 
+            "id": 22, 
+            "input_connections": {
+                "input_source|input_config": {
+                    "id": 21, 
+                    "output_name": "output_log"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Filter SV VCF with SWIFT", 
+                    "name": "input_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool Filter SV VCF with SWIFT", 
+                    "name": "bedfile"
+                }
+            ], 
+            "label": null, 
+            "name": "Filter SV VCF with SWIFT", 
+            "outputs": [
+                {
+                    "name": "output_config", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 1533.8125, 
+                "top": 1037.1875
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_config": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_config"
+                }
+            }, 
+            "tool_id": "swift_filter_sv_vcf", 
+            "tool_state": "{\"__page__\": null, \"info_filters\": \"[{\\\"__index__\\\": 0, \\\"info_filter\\\": \\\"FILTER = PASS\\\"}]\", \"genotype_filters\": \"[{\\\"__index__\\\": 0, \\\"genotype_filter\\\": \\\"!( GT = 0/0 )\\\"}]\", \"__rerun_remap_job_id__\": null, \"bedfile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_source\": \"{\\\"source_type\\\": \\\"config\\\", \\\"input_config\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\"}", 
+            "tool_version": "SAMTOOLS: 1.2; VCFTOOLS: vcftools_0.1.11; VCFLIB: 10.27.2016", 
+            "type": "tool", 
+            "uuid": "e2d9c793-17a4-42a8-a86c-95a4cf935e5a", 
+            "workflow_outputs": []
+        }, 
+        "23": {
+            "annotation": "21", 
+            "content_id": "metasv_swift", 
+            "errors": null, 
+            "id": 23, 
+            "input_connections": {
+                "softclip|in_type|input1": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "sv_0|input_dir_source|input_directory_path_file": {
+                    "id": 1, 
+                    "output_name": "output_log"
+                }, 
+                "sv_1|input_dir_source|input_directory_path_file": {
+                    "id": 14, 
+                    "output_name": "output_config"
+                }, 
+                "sv_2|input_dir_source|input_directory_path_file": {
+                    "id": 16, 
+                    "output_name": "output_log"
+                }, 
+                "sv_3|input_dir_source|input_directory_path_file": {
+                    "id": 17, 
+                    "output_name": "output_config"
+                }, 
+                "sv_4|input_dir_source|input_directory_path_file": {
+                    "id": 22, 
+                    "output_name": "output_config"
+                }, 
+                "sv_5|input_dir_source|input_directory_path_file": {
+                    "id": 13, 
+                    "output_name": "output_log"
+                }, 
+                "sv_6|input_dir_source|input_directory_path_file": {
+                    "id": 15, 
+                    "output_name": "output_config"
+                }, 
+                "sv_7|input_dir_source|input_directory_path_file": {
+                    "id": 19, 
+                    "output_name": "output_config"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "metasv (Swift)", 
+            "outputs": [
+                {
+                    "name": "output_log", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "output_swift_log", 
+                    "type": "pdf"
+                }
+            ], 
+            "position": {
+                "left": 1838.5, 
+                "top": 861.4375
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "metasv_swift", 
+            "tool_state": "{\"__page__\": null, \"softclip\": \"{\\\"input_bam_dir_source\\\": {\\\"input_dir_source_type\\\": \\\"text\\\", \\\"input_directory_path\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}, \\\"run\\\": \\\"yes\\\", \\\"__current_case__\\\": 0, \\\"in_type\\\": {\\\"input_type\\\": \\\"history\\\", \\\"input1\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}}\", \"__rerun_remap_job_id__\": null, \"sv\": \"[{\\\"input_dir_source\\\": {\\\"input_dir_source_type\\\": \\\"file\\\", \\\"input_directory_path_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}, \\\"__index__\\\": 0, \\\"tool\\\": \\\"--breakdancer_native\\\"}, {\\\"input_dir_source\\\": {\\\"input_dir_source_type\\\": \\\"file\\\", \\\"input_directory_path_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}, \\\"__index__\\\": 1, \\\"tool\\\": \\\"--breakseq_vcf\\\"}, {\\\"input_dir_source\\\": {\\\"input_dir_source_type\\\": \\\"file\\\", \\\"input_directory_path_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}, \\\"__index__\\\": 2, \\\"tool\\\": \\\"--cnvkit_vcf\\\"}, {\\\"input_dir_source\\\": {\\\"input_dir_source_type\\\": \\\"file\\\", \\\"input_directory_path_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}, \\\"__index__\\\": 3, \\\"tool\\\": \\\"--contra_vcf\\\"}, {\\\"input_dir_source\\\": {\\\"input_dir_source_type\\\": \\\"file\\\", \\\"input_directory_path_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}, \\\"__index__\\\": 4, \\\"tool\\\": \\\"--delly_vcf\\\"}, {\\\"input_dir_source\\\": {\\\"input_dir_source_type\\\": \\\"file\\\", \\\"input_directory_path_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}, \\\"__index__\\\": 5, \\\"tool\\\": \\\"--lumpy_vcf\\\"}, {\\\"input_dir_source\\\": {\\\"input_dir_source_type\\\": \\\"file\\\", \\\"input_directory_path_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}, \\\"__index__\\\": 6, \\\"tool\\\": \\\"--manta_vcf\\\"}, {\\\"input_dir_source\\\": {\\\"input_dir_source_type\\\": \\\"file\\\", \\\"input_directory_path_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}, \\\"__index__\\\": 7, \\\"tool\\\": \\\"--pindel_vcf\\\"}]\"}", 
+            "tool_version": "METASV: v0.5", 
+            "type": "tool", 
+            "uuid": "b8e4def0-ec9c-4585-97da-181654a3a578", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output_swift_log", 
+                    "uuid": "11330d27-ebd9-4595-aea3-d814d9635485"
+                }, 
+                {
+                    "label": null, 
+                    "output_name": "output_log", 
+                    "uuid": "e09767c8-d0eb-4a0b-adc7-4fd9ffe04b08"
+                }
+            ]
+        }, 
+        "24": {
+            "annotation": "21", 
+            "content_id": "swift_sv_sort_vcf", 
+            "errors": null, 
+            "id": 24, 
+            "input_connections": {
+                "input_source|input_config": {
+                    "id": 23, 
+                    "output_name": "output_log"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Sort SV VCF with SWIFT", 
+                    "name": "input_source"
+                }
+            ], 
+            "label": null, 
+            "name": "Sort SV VCF with SWIFT", 
+            "outputs": [
+                {
+                    "name": "output_config", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 2150.5, 
+                "top": 1213.375
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_config": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_config"
+                }
+            }, 
+            "tool_id": "swift_sv_sort_vcf", 
+            "tool_state": "{\"input_source\": \"{\\\"source_type\\\": \\\"config\\\", \\\"input_config\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\", \"__page__\": null, \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "SAMTOOLS: 1.2; VCFTOOLS: vcftools_0.1.11; VCFLIB: 07.21.2015", 
+            "type": "tool", 
+            "uuid": "db325ca4-954b-462f-8a9c-a1f7b70a4534", 
+            "workflow_outputs": []
+        }, 
+        "25": {
+            "annotation": "30", 
+            "content_id": "swift_filter_sv_vcf", 
+            "errors": null, 
+            "id": 25, 
+            "input_connections": {
+                "input_source|input_config": {
+                    "id": 24, 
+                    "output_name": "output_config"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Filter SV VCF with SWIFT", 
+                    "name": "input_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool Filter SV VCF with SWIFT", 
+                    "name": "bedfile"
+                }
+            ], 
+            "label": null, 
+            "name": "Filter SV VCF with SWIFT", 
+            "outputs": [
+                {
+                    "name": "output_config", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 2149.8125, 
+                "top": 1067.1875
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_config": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_config"
+                }
+            }, 
+            "tool_id": "swift_filter_sv_vcf", 
+            "tool_state": "{\"__page__\": null, \"info_filters\": \"[{\\\"__index__\\\": 0, \\\"info_filter\\\": \\\"FILTER = PASS\\\"}]\", \"genotype_filters\": \"[{\\\"__index__\\\": 0, \\\"genotype_filter\\\": \\\"!( GT = 0/0 )\\\"}]\", \"__rerun_remap_job_id__\": null, \"bedfile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_source\": \"{\\\"source_type\\\": \\\"config\\\", \\\"input_config\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\"}", 
+            "tool_version": "SAMTOOLS: 1.2; VCFTOOLS: vcftools_0.1.11; VCFLIB: 10.27.2016", 
+            "type": "tool", 
+            "uuid": "10927651-d823-44df-ab33-5ff775addd8b", 
+            "workflow_outputs": []
+        }, 
+        "26": {
+            "annotation": "24", 
+            "content_id": "metasv_combine_vcf", 
+            "errors": null, 
+            "id": 26, 
+            "input_connections": {
+                "input_config": {
+                    "id": 25, 
+                    "output_name": "output_config"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Generate a bed file for combined metasv vcf files", 
+                    "name": "input_config"
+                }
+            ], 
+            "label": null, 
+            "name": "Generate a bed file for combined metasv vcf files", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "bed"
+                }
+            ], 
+            "position": {
+                "left": 2150.5, 
+                "top": 921.875
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_id": "metasv_combine_vcf", 
+            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"input_config\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "0.0.1", 
+            "type": "tool", 
+            "uuid": "bf55234b-5e08-43c7-aa93-5c76c8616684", 
+            "workflow_outputs": []
+        }, 
+        "27": {
+            "annotation": "26", 
+            "content_id": "cat1", 
+            "errors": null, 
+            "id": 27, 
+            "input_connections": {
+                "input1": {
+                    "id": 18, 
+                    "output_name": "output"
+                }, 
+                "queries_0|input2": {
+                    "id": 26, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Concatenate datasets", 
+                    "name": "input1"
+                }
+            ], 
+            "label": null, 
+            "name": "Concatenate datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 2479, 
+                "top": 787.875
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_id": "cat1", 
+            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"input1\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"queries\": \"[{\\\"input2\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__index__\\\": 0}]\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "3916f2a6-1f4c-4414-a862-b4a8a78384c4", 
+            "workflow_outputs": []
+        }, 
+        "28": {
+            "annotation": "27", 
+            "content_id": "uniq", 
+            "errors": null, 
+            "id": 28, 
+            "input_connections": {
+                "input": {
+                    "id": 27, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Uniq", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "Uniq", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 2476.5, 
+                "top": 923.875
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_id": "uniq", 
+            "tool_state": "{\"columnList\": \"\\\"1,2,3,4\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"__page__\": null}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "f2841a43-51d6-451d-b4c6-9984835f03ca", 
+            "workflow_outputs": []
+        }, 
+        "29": {
+            "annotation": "28", 
+            "content_id": "bedtools_intersectbed", 
+            "errors": null, 
+            "id": 29, 
+            "input_connections": {
+                "inputA": {
+                    "id": 28, 
+                    "output_name": "output"
+                }, 
+                "inputB": {
+                    "id": 5, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Bedtools-intersectBed", 
+                    "name": "inputB"
+                }, 
+                {
+                    "description": "runtime parameter for tool Bedtools-intersectBed", 
+                    "name": "inputA"
+                }
+            ], 
+            "label": null, 
+            "name": "Bedtools-intersectBed", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "bed"
+                }
+            ], 
+            "position": {
+                "left": 2476, 
+                "top": 1069.875
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }
+            }, 
+            "tool_id": "bedtools_intersectbed", 
+            "tool_state": "{\"__page__\": null, \"wa\": \"\\\"true\\\"\", \"reciprocal\": \"\\\"false\\\"\", \"wo\": \"\\\"false\\\"\", \"invert\": \"\\\"false\\\"\", \"inputB\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"inputA\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"u\": \"\\\"true\\\"\", \"split\": \"\\\"false\\\"\", \"fraction\": \"\\\"\\\"\", \"__rerun_remap_job_id__\": null, \"strand\": \"\\\"\\\"\", \"wb\": \"\\\"false\\\"\"}", 
+            "tool_version": "BEDTOOLS: 2.17.0", 
+            "type": "tool", 
+            "uuid": "c3d5b150-3f95-47d5-a289-2f185f4a717d", 
+            "workflow_outputs": []
+        }, 
+        "30": {
+            "annotation": "30", 
+            "content_id": "Add_a_column1", 
+            "errors": null, 
+            "id": 30, 
+            "input_connections": {
+                "input": {
+                    "id": 29, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Compute", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "Compute", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 2745.5, 
+                "top": 1200.875
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_id": "Add_a_column1", 
+            "tool_state": "{\"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"cond\": \"\\\"c2-10000\\\"\", \"round\": \"\\\"yes\\\"\", \"__page__\": null}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "uuid": "3d6a9dc4-21cf-4efe-8381-f0aec606856f", 
+            "workflow_outputs": []
+        }, 
+        "31": {
+            "annotation": "31", 
+            "content_id": "Add_a_column1", 
+            "errors": null, 
+            "id": 31, 
+            "input_connections": {
+                "input": {
+                    "id": 30, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Compute", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "Compute", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 2743.5, 
+                "top": 1066.875
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_id": "Add_a_column1", 
+            "tool_state": "{\"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"cond\": \"\\\"c3+10000\\\"\", \"round\": \"\\\"yes\\\"\", \"__page__\": null}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "uuid": "ce8a6b00-676d-41cc-92df-35774d51519f", 
+            "workflow_outputs": []
+        }, 
+        "32": {
+            "annotation": "32", 
+            "content_id": "Cut1", 
+            "errors": null, 
+            "id": 32, 
+            "input_connections": {
+                "input": {
+                    "id": 31, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Cut", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 2738.5, 
+                "top": 921.875
+            }, 
+            "post_job_actions": {
+                "ChangeDatatypeActionout_file1": {
+                    "action_arguments": {
+                        "newtype": "bed"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "out_file1"
+                }, 
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_id": "Cut1", 
+            "tool_state": "{\"columnList\": \"\\\"c1,c6,c7,c4,c5\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"delimiter\": \"\\\"T\\\"\", \"__rerun_remap_job_id__\": null, \"__page__\": null}", 
+            "tool_version": "1.0.2", 
+            "type": "tool", 
+            "uuid": "e9e0bda8-f06b-4789-b505-006e547be23f", 
+            "workflow_outputs": []
+        }, 
+        "33": {
+            "annotation": "33", 
+            "content_id": "post_metasv", 
+            "errors": null, 
+            "id": 33, 
+            "input_connections": {
+                "in_type|input1": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "input_bed": {
+                    "id": 32, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Post-processing for metasv", 
+                    "name": "input_bed"
+                }, 
+                {
+                    "description": "runtime parameter for tool Post-processing for metasv", 
+                    "name": "in_type"
+                }, 
+                {
+                    "description": "runtime parameter for tool Post-processing for metasv", 
+                    "name": "input_bams_path"
+                }
+            ], 
+            "label": null, 
+            "name": "Post-processing for metasv", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 2740.5, 
+                "top": 779.875
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "post_metasv", 
+            "tool_state": "{\"__page__\": null, \"input_bed\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_bams_path\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"in_type\": \"{\\\"input_type\\\": \\\"history\\\", \\\"input1\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\"}", 
+            "tool_version": "GATK3: GenomeAnalysisTK-3.3.0; SAMTOOLS: 0.1.18", 
+            "type": "tool", 
+            "uuid": "e9428066-ccd2-4c31-8108-38baff9722ab", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "d86b74e2-9ea7-43af-a41b-67a92c497e43"
+                }
+            ]
+        }
+    }, 
+    "uuid": "53efbc46-2596-4020-826d-9bee83a640b2"
+}

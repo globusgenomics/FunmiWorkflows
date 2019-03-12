@@ -1,0 +1,406 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "PRODUCTION_Atlas-SNP2_Swift_BEDFilterTrim_MasterSiteList", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Fasta reference"
+                }
+            ], 
+            "label": "Fasta reference", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 180.71249389648438, 
+                "top": 261.7250061035156
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Fasta reference\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "e2648d38-a72c-42cd-a0d4-a7d87da46c48", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "009fe0fc-25aa-4e30-aab5-58c294800425"
+                }
+            ]
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Capture Target File (BED)"
+                }
+            ], 
+            "label": "Input Capture Target File (BED)", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 373.6875, 
+                "top": 429.6875
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Capture Target File (BED)\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "b95be938-d259-43ea-859b-ed69c95176b0", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "88f4e0b0-d9b9-40f4-be59-96f8b751461f"
+                }
+            ]
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": "swift_atlas_wrapper_v2", 
+            "errors": null, 
+            "id": 2, 
+            "input_connections": {
+                "fasta_file": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Atlas Swift submission (full parameter set)", 
+                    "name": "fasta_file"
+                }, 
+                {
+                    "description": "runtime parameter for tool Atlas Swift submission (full parameter set)", 
+                    "name": "bamdir"
+                }
+            ], 
+            "label": null, 
+            "name": "Atlas Swift submission (full parameter set)", 
+            "outputs": [
+                {
+                    "name": "output_config", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "pdf"
+                }
+            ], 
+            "position": {
+                "left": 248.6875, 
+                "top": 562.6875
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_config": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_config"
+                }
+            }, 
+            "tool_id": "swift_atlas_wrapper_v2", 
+            "tool_state": "{\"snp_swift_file\": \"null\", \"sites_list\": \"null\", \"base_sub_max\": \"\\\"5\\\"\", \"target_region\": \"null\", \"fasta_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"outputdir\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"target_limit_type\": \"{\\\"target_limit_type_selector\\\": \\\"do_not_limit\\\", \\\"__current_case__\\\": 0}\", \"__page__\": null, \"prior_l\": \"\\\"None\\\"\", \"__rerun_remap_job_id__\": null, \"prior_e\": \"\\\"0.1\\\"\", \"platform\": \"\\\"Illumina\\\"\", \"prior_prob_e\": \"\\\"None\\\"\", \"sites_file\": \"null\", \"prior_prob_l\": \"\\\"None\\\"\", \"min_coverage\": \"\\\"6\\\"\", \"qualFilter\": \"{\\\"qual_filter\\\": \\\"Yes\\\", \\\"__current_case__\\\": 0}\", \"base_indel_max\": \"\\\"5\\\"\", \"bamdir\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"post_cutoff\": \"\\\"None\\\"\", \"qual_filter\": \"\\\"Yes\\\"\", \"insert_size_max\": \"\\\"None\\\"\", \"tc_file\": \"null\", \"alignment_max\": \"\\\"1024\\\"\", \"evalSites\": \"{\\\"eval_sites_flag\\\": \\\"No\\\", \\\"__current_case__\\\": 1}\"}", 
+            "tool_version": "SAMTOOLS: 1.2", 
+            "type": "tool", 
+            "uuid": "05f40b0e-d113-43ff-8896-7a2856aeca6a", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "trimmer", 
+            "errors": null, 
+            "id": 3, 
+            "input_connections": {
+                "input1": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Trim", 
+                    "name": "input1"
+                }
+            ], 
+            "label": null, 
+            "name": "Trim", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 605, 
+                "top": 493.5
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_id": "trimmer", 
+            "tool_state": "{\"__page__\": null, \"input1\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"end\": \"\\\"0\\\"\", \"fastq\": \"\\\"\\\"\", \"ignore\": \"null\", \"start\": \"\\\"4\\\"\", \"__rerun_remap_job_id__\": null, \"col\": \"\\\"1\\\"\"}", 
+            "tool_version": "0.0.1", 
+            "type": "tool", 
+            "uuid": "a8d1a20c-ec13-4a23-90b5-f5db15b6bcb3", 
+            "workflow_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": "swift_filter_vcf", 
+            "errors": null, 
+            "id": 4, 
+            "input_connections": {
+                "bedfile": {
+                    "id": 3, 
+                    "output_name": "out_file1"
+                }, 
+                "input_source|input_config": {
+                    "id": 2, 
+                    "output_name": "output_config"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Filter VCF with SWIFT", 
+                    "name": "bedfile"
+                }, 
+                {
+                    "description": "runtime parameter for tool Filter VCF with SWIFT", 
+                    "name": "input_source"
+                }
+            ], 
+            "label": null, 
+            "name": "Filter VCF with SWIFT", 
+            "outputs": [
+                {
+                    "name": "output_config", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 598.1999969482422, 
+                "top": 656.7125244140625
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_config": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_config"
+                }
+            }, 
+            "tool_id": "swift_filter_vcf", 
+            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"bedfile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"filters\": \"\\\"AC > 0\\\"\", \"input_source\": \"{\\\"source_type\\\": \\\"config\\\", \\\"input_config\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\", \"minq\": \"\\\"10\\\"\", \"extra_filters\": \"[]\", \"outputdir\": \"\\\"/scratch/funmi/go/galaxy/test_vcf_remake\\\"\"}", 
+            "tool_version": "SAMTOOLS: 1.2; VCFTOOLS: vcftools_0.1.11; VCFLIB: 07.21.2015", 
+            "type": "tool", 
+            "uuid": "a72f1ab1-2ed3-4c8a-80ae-cee3e015f6d9", 
+            "workflow_outputs": []
+        }, 
+        "5": {
+            "annotation": "", 
+            "content_id": "atlas_master_site_list", 
+            "errors": null, 
+            "id": 5, 
+            "input_connections": {
+                "config_file": {
+                    "id": 4, 
+                    "output_name": "output_config"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Generate Master Site List", 
+                    "name": "config_file"
+                }
+            ], 
+            "label": null, 
+            "name": "Generate Master Site List", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 857.7125091552734, 
+                "top": 658.7000122070312
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_file"
+                }
+            }, 
+            "tool_id": "atlas_master_site_list", 
+            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"config_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "1.0", 
+            "type": "tool", 
+            "uuid": "6926732b-2eb5-461d-9bc0-5e9ef1c25686", 
+            "workflow_outputs": []
+        }, 
+        "6": {
+            "annotation": "", 
+            "content_id": "swift_atlas_wrapper_v2", 
+            "errors": null, 
+            "id": 6, 
+            "input_connections": {
+                "evalSites|sites_list": {
+                    "id": 5, 
+                    "output_name": "output_file"
+                }, 
+                "fasta_file": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Atlas Swift submission (full parameter set)", 
+                    "name": "fasta_file"
+                }, 
+                {
+                    "description": "runtime parameter for tool Atlas Swift submission (full parameter set)", 
+                    "name": "evalSites"
+                }, 
+                {
+                    "description": "runtime parameter for tool Atlas Swift submission (full parameter set)", 
+                    "name": "bamdir"
+                }
+            ], 
+            "label": null, 
+            "name": "Atlas Swift submission (full parameter set)", 
+            "outputs": [
+                {
+                    "name": "output_config", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "pdf"
+                }
+            ], 
+            "position": {
+                "left": 991.7124938964844, 
+                "top": 327.7124938964844
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_config": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_config"
+                }
+            }, 
+            "tool_id": "swift_atlas_wrapper_v2", 
+            "tool_state": "{\"min_coverage\": \"\\\"6\\\"\", \"prior_l\": \"\\\"None\\\"\", \"base_sub_max\": \"\\\"5\\\"\", \"insert_size_max\": \"\\\"None\\\"\", \"__page__\": null, \"qualFilter\": \"{\\\"qual_filter\\\": \\\"Yes\\\", \\\"__current_case__\\\": 0}\", \"fasta_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"prior_e\": \"\\\"0.1\\\"\", \"alignment_max\": \"\\\"1024\\\"\", \"qual_filter\": \"\\\"Yes\\\"\", \"base_indel_max\": \"\\\"5\\\"\", \"__rerun_remap_job_id__\": null, \"platform\": \"\\\"Illumina\\\"\", \"bamdir\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"target_limit_type\": \"{\\\"target_limit_type_selector\\\": \\\"do_not_limit\\\", \\\"__current_case__\\\": 0}\", \"post_cutoff\": \"\\\"None\\\"\", \"prior_prob_e\": \"\\\"None\\\"\", \"prior_prob_l\": \"\\\"None\\\"\", \"outputdir\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"evalSites\": \"{\\\"only_eval_sites\\\": \\\"Yes\\\", \\\"eval_sites_flag\\\": \\\"Yes\\\", \\\"__current_case__\\\": 0, \\\"sites_list\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}\"}", 
+            "tool_version": "SAMTOOLS: 1.2", 
+            "type": "tool", 
+            "uuid": "f7cdad47-74a5-4674-b5d0-c5b5c95d6b8b", 
+            "workflow_outputs": []
+        }, 
+        "7": {
+            "annotation": "", 
+            "content_id": "vcfPrinter_id_1.1", 
+            "errors": null, 
+            "id": 7, 
+            "input_connections": {
+                "input_source|input_config": {
+                    "id": 6, 
+                    "output_name": "output_config"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool vcfPrinter", 
+                    "name": "input_source"
+                }
+            ], 
+            "label": null, 
+            "name": "vcfPrinter", 
+            "outputs": [
+                {
+                    "name": "outputVCF", 
+                    "type": "vcf"
+                }
+            ], 
+            "position": {
+                "left": 1331.7125244140625, 
+                "top": 507.72503662109375
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutputVCF": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "outputVCF"
+                }
+            }, 
+            "tool_id": "vcfPrinter_id_1.1", 
+            "tool_state": "{\"__page__\": null, \"region\": \"\\\"\\\"\", \"pass_variants\": \"\\\"true\\\"\", \"input_source\": \"{\\\"source_type\\\": \\\"config\\\", \\\"input_config\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"pileup\": \"{\\\"__current_case__\\\": 0, \\\"pileup_available\\\": \\\"no\\\"}\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "1.1", 
+            "type": "tool", 
+            "uuid": "7c025ea9-0483-40c4-b3e5-6ed9c691b78e", 
+            "workflow_outputs": []
+        }, 
+        "8": {
+            "annotation": "", 
+            "content_id": "atlas_post_proc", 
+            "errors": null, 
+            "id": 8, 
+            "input_connections": {
+                "input_vcf": {
+                    "id": 7, 
+                    "output_name": "outputVCF"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool ATLAS post processing", 
+                    "name": "input_vcf"
+                }
+            ], 
+            "label": null, 
+            "name": "ATLAS post processing", 
+            "outputs": [
+                {
+                    "name": "processed_vcf", 
+                    "type": "vcf"
+                }
+            ], 
+            "position": {
+                "left": 1574.7250366210938, 
+                "top": 615.7125244140625
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "atlas_post_proc", 
+            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"bam_dir\": \"\\\"None\\\"\", \"input_vcf\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "5959267e-982b-4bfc-bd5b-9687a54faafc", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "processed_vcf", 
+                    "uuid": "ea0960d7-ce50-4ef4-8ce4-59d008513525"
+                }
+            ]
+        }
+    }, 
+    "uuid": "7eee19e5-959e-462a-8255-817240871cdf"
+}

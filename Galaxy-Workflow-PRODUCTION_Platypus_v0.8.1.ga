@@ -1,0 +1,155 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "PRODUCTION_Platypus_v0.8.1", 
+    "steps": {
+        "0": {
+            "annotation": "0", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "0", 
+                    "name": "reference genome"
+                }
+            ], 
+            "label": "reference genome", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 216.14999389648438, 
+                "top": 265.1625061035156
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"reference genome\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "b6fc2bfc-1a6b-4446-936d-0a8fc098a672", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "1", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "1", 
+                    "name": "BED"
+                }
+            ], 
+            "label": "BED", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 218.20001220703125, 
+                "top": 389.20001220703125
+            }, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"BED\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "0a2e1692-31e6-427c-bfd5-e9e01d4749d8", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "2", 
+            "content_id": "bg_platypus", 
+            "errors": null, 
+            "id": 2, 
+            "input_connections": {
+                "reference_source|ref_file_fasta": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "regions_type_cond|region_file": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Platypus", 
+                    "name": "input_dir_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool Platypus", 
+                    "name": "reference_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool Platypus", 
+                    "name": "regions_type_cond"
+                }, 
+                {
+                    "description": "runtime parameter for tool Platypus", 
+                    "name": "options_type"
+                }
+            ], 
+            "label": null, 
+            "name": "Platypus", 
+            "outputs": [
+                {
+                    "name": "outfile", 
+                    "type": "vcf"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 477.3375244140625, 
+                "top": 265.3374938964844
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "bg_platypus", 
+            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"regions_type_cond\": \"{\\\"region_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1, \\\"regions_type\\\": \\\"file\\\"}\", \"input_dir_source\": \"{\\\"input_dir_source_type\\\": \\\"text\\\", \\\"input_directory_path\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\", \"options_type\": \"{\\\"trimReadFlank\\\": \\\"false\\\", \\\"trimSoftClipped\\\": \\\"true\\\", \\\"minReads\\\": \\\"6\\\", \\\"maxGOF\\\": \\\"30\\\", \\\"maxHaplotypes\\\": \\\"50\\\", \\\"filterVarsByCoverage\\\": \\\"true\\\", \\\"skipDifficultWindows\\\": \\\"false\\\", \\\"mergeClusteredVariants_cond\\\": {\\\"minVarDist\\\": \\\"9\\\", \\\"maxVarDist\\\": \\\"15\\\", \\\"mergeClusteredVariants\\\": \\\"yes\\\", \\\"__current_case__\\\": 1}, \\\"trimAdapter\\\": \\\"true\\\", \\\"calculateFlankScore\\\": \\\"false\\\", \\\"trimOverlapping\\\": \\\"true\\\", \\\"filterDuplicates\\\": \\\"false\\\", \\\"abThreshold\\\": \\\"0.001\\\", \\\"minFlank\\\": \\\"10\\\", \\\"minPosterior\\\": \\\"5\\\", \\\"useEMLikelihoods\\\": \\\"false\\\", \\\"assemble_cond\\\": {\\\"assemble\\\": \\\"no\\\", \\\"__current_case__\\\": 0}, \\\"coverageSamplingLevel\\\": \\\"30\\\", \\\"qdThreshold\\\": \\\"10\\\", \\\"maxVariants\\\": \\\"8\\\", \\\"scThreshold\\\": \\\"0.95\\\", \\\"filterReadsWithDistantMates\\\": \\\"true\\\", \\\"filteredReadsFrac\\\": \\\"0.7\\\", \\\"badReadsWindow\\\": \\\"11\\\", \\\"genIndels\\\": \\\"true\\\", \\\"outputRefCalls_cond\\\": {\\\"outputRefCalls\\\": \\\"no\\\", \\\"__current_case__\\\": 0}, \\\"minMapQual\\\": \\\"20\\\", \\\"sourcefile\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"minGoodQualBases\\\": \\\"20\\\", \\\"countOnlyExactIndelMatches\\\": \\\"false\\\", \\\"longHaps\\\": \\\"false\\\", \\\"HLATyping\\\": \\\"no\\\", \\\"skip_regions_type_cond\\\": {\\\"__current_case__\\\": 0, \\\"regions_type\\\": \\\"none\\\"}, \\\"minBaseQual\\\": \\\"20\\\", \\\"getVariantsFromBAMs\\\": \\\"true\\\", \\\"rmsmqThreshold\\\": \\\"40\\\", \\\"minVarFreq\\\": \\\"0.05\\\", \\\"options_type_selector\\\": \\\"advanced\\\", \\\"maxReadLength\\\": \\\"150\\\", \\\"maxReads\\\": \\\"5000000\\\", \\\"badReadsThreshold\\\": \\\"15\\\", \\\"hapScoreThreshold\\\": \\\"4\\\", \\\"__current_case__\\\": 1, \\\"sbThreshold\\\": \\\"0.001\\\", \\\"genSNPs\\\": \\\"true\\\", \\\"largeWindows_cond\\\": {\\\"largeWindows\\\": \\\"no\\\", \\\"__current_case__\\\": 0}, \\\"filterReadsWithUnmappedMates\\\": \\\"true\\\", \\\"filterReadPairsWithSmallInserts\\\": \\\"true\\\"}\", \"reference_source\": \"{\\\"ref_file_fasta\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"reference_source_selector\\\": \\\"history\\\", \\\"__current_case__\\\": 1}\"}", 
+            "tool_version": "PLATYPUS: Platypus_0.8.1", 
+            "type": "tool", 
+            "uuid": "62627761-4ea1-4ecd-833e-6ed517916741", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "Filter1", 
+            "errors": null, 
+            "id": 3, 
+            "input_connections": {
+                "input": {
+                    "id": 2, 
+                    "output_name": "outfile"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Filter", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "Filter", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 745, 
+                "top": 266
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "Filter1", 
+            "tool_state": "{\"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"header_lines\": \"\\\"48\\\"\", \"cond\": \"\\\"c7=='PASS'\\\"\", \"__page__\": null}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "uuid": "98eb9437-7297-4328-a1c1-05129ac956df", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "a08d28f4-0050-46da-b11d-4a64b0d24543"
+}
